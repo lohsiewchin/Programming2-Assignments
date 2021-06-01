@@ -5,23 +5,17 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Welcome to UUM Tourism Service - Hotel Booking System.\n");
 		
-		Hotels u = new Hotels();
-		u.UserLogin();
+		HotelBookingSystem b = new HotelBookingSystem("Just Go Travel", 2010);
 		
 		HotelDescription h = new HotelDescription("Penang", "Hotel Eastern & Oriental");
-		System.out.println(h);
 		
-		InventoryNEmployeeNCustomerManagement m = new InventoryNEmployeeNCustomerManagement("Front desk", 12345);
-		System.out.println(m);
+		Employee m = new Employee("Manager", 12345);
 		
-		AdvertisementNMarketing a = new AdvertisementNMarketing("Star Paper", 30);
-		System.out.println(a);
+		AdvertisementNMarketing a = new AdvertisementNMarketing("Facebook");
 		
 		Sales s = new Sales(1, 0.10);
-		System.out.println(s);
 		
 		Finance f = new Finance("January", 31);
-		System.out.println(f);
 		
 	}
 
