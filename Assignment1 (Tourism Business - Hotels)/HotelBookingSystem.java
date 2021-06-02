@@ -7,13 +7,13 @@ public class HotelBookingSystem { //1.3 User Define Class
 	int year;
 	
 	HotelBookingSystem(){ //1.4 Constructor with no argument
-		getName();
+		companyName = "Just Go Travel";
+		System.out.println(getCompanyName());
 	}
 	
 	HotelBookingSystem(String n){ //1.4 Constructor with one argument
 		companyName=n;
-		getName();
-		
+		System.out.println(getCompanyName());
 	}
 	
 	HotelBookingSystem(String n, int y){ //1.4 Constructor with two arguments
@@ -23,8 +23,8 @@ public class HotelBookingSystem { //1.3 User Define Class
 		contactUs();
 	}
 	
-	public String getName() {
-		return "Company Name\t: " + companyName;
+	public String getCompanyName() {
+		return "\nCompany Name\t: " + companyName + "\n";
 	}
 	
 	public void CompanyInfo() {
