@@ -1,6 +1,6 @@
 package Assignment2;
 
-public abstract class Sales implements Payment{ //2.1 Inheritance & 2.4 Abstraction & 2.5 Interface
+public abstract class Sales{ //2.1 Inheritance & 2.4 Abstraction
 
 	int quantity, duration, age;
 	double price, discount, totalPrice, finalPrice;
@@ -134,17 +134,14 @@ public abstract class Sales implements Payment{ //2.1 Inheritance & 2.4 Abstract
 		System.out.println("Hotel\t\t: " + getHotel());
 		System.out.println("Type of Room\t: " + getTypeOfRoom());
 		System.out.printf("Price\t\t: RM%.2f" , getPrice());
-		System.out.println("\nDuration\t: " + getDuration() + " night(s)");
-	}
-	
-	public double getPayment() { //2.5 Interface
-		return totalPrice;
+		System.out.println("\nQuantity\t: " + quantity);
+		System.out.println("Duration\t: " + getDuration() + " night(s)");
 	}
 	
 	public void calTotalPrice() {
 		totalPrice = price*quantity*duration;
-		System.out.printf("The price of per " + getTypeOfRoom() + " for " + getHotel() + " is RM%.2f", getPrice());
-		System.out.printf("\nTotal price for " + quantity + " " + getTypeOfRoom() + " for " + getHotel() + " with " + getDuration() + " night(s) is RM%.2f", getPayment());
+		System.out.printf("The price of per " + getTypeOfRoom() + " for " + getHotel() + "per night is RM%.2f", getPrice());
+		System.out.printf("\nTotal price for " + quantity + " " + getTypeOfRoom() + " for " + getHotel() + " with " + getDuration() + " night(s) is RM%.2f", totalPrice);
 	}
 	
 	public void calDiscount() {

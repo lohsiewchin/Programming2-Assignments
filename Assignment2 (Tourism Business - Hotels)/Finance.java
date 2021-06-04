@@ -76,7 +76,7 @@ public class Finance extends Sales implements Payment{ //2.1 Inheritance & 2.5 I
 		totalIncome=incomeHotel+incomeAdvertorial;
 		
 		System.out.println("==========TOTAL INCOME==========");
-		System.out.printf("\nIncome from Hotel Booking\t: RM%.2f" , getIncomeHotel());
+		System.out.printf("Income from Hotel Booking\t: RM%.2f" , getIncomeHotel());
 		System.out.printf("\nIncome from Advertorial\t\t: RM%.2f" , getIncomeAdvertorial());
 		
 		System.out.printf("\nThe total income of our company in " + month + " is RM%.2f", totalIncome);
@@ -91,7 +91,7 @@ public class Finance extends Sales implements Payment{ //2.1 Inheritance & 2.5 I
 		totalExpenditure=wagesEmployee+expensesMaintainance+expensesAdvertisement+expensesMiscellaneous;
 		
 		System.out.println("\n\n==========TOTAL EXPENDITURE==========");
-		System.out.printf("\nMaintainance Expenses\t: RM%.2f" , getExpensesMaintainance());
+		System.out.printf("Maintainance Expenses\t: RM%.2f" , getExpensesMaintainance());
 		System.out.printf("\nAdvertisement Expenses\t: RM%.2f" , getExpensesAdvertisement());
 		System.out.printf("\nWages Employee\t\t: RM%.2f" , getWagesEmployee());
 		System.out.printf("\nMiscellaneous Expenses\t: RM%.2f" , getExpensesMiscellaneous());
