@@ -11,7 +11,7 @@ System.out.println("Welcome to UUM Tourism Service - Hotel Booking System.");
 		
 		AdvertisementNMarketing a = new AdvertisementNMarketing();
 		
-		Finance f = new Finance(1, 0.10, "January");
+		Finance f = new Finance(2, 0.10, "January");
 
 	}
 

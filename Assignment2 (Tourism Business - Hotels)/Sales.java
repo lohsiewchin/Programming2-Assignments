@@ -128,7 +128,7 @@ public abstract class Sales{ //2.1 Inheritance & 2.4 Abstraction
 		setHotel("Hotel Eastern & Oriental");
 		setTypeOfRoom("comfort room");
 		setPrice(420);
-		setDuration(2);
+		setDuration(5);
 		
 		System.out.println("Destination\t: " + getDestination());
 		System.out.println("Hotel\t\t: " + getHotel());
@@ -146,6 +146,7 @@ public abstract class Sales{ //2.1 Inheritance & 2.4 Abstraction
 	
 	public void calDiscount() {
 		if (totalPrice >= 3000) {
+			System.out.println("\n\n============DISCOUNT============");
 			System.out.println("*****CONGRATULATIONS!!! You get a 10% discount on your this time order because of spending over RM3000.*****");
 			finalPrice = totalPrice*(1-discount);
 			System.out.printf("Your final price after 10 percent discount is RM%.2f", finalPrice);

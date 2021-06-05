@@ -1,15 +1,16 @@
 package Assignment2;
 
-public class Employee extends HotelBookingSystem{ //2.1 Inheritance
+public class Employee extends HotelBookingSystem implements Payment{ //2.1 Inheritance & 2.5 Interface
 	
 	String name, email, address, position, medicalhistory, hp;
-	int age, salary, contract, employeeID;
+	int age, contract, employeeID;
 	char gender;
+	double salary;
 	
 	public Employee(String p, int id) { 
 		super();
 		
-		System.out.println("\n***************EMPLOYEE***************");
+		System.out.println("***************EMPLOYEE***************");
 		position=p;
 		employeeID=id;
 		printInfo();
@@ -52,7 +53,7 @@ public class Employee extends HotelBookingSystem{ //2.1 Inheritance
 		this.contract=contract;
 	}
 	
-	public void setSalary(int salary) {
+	public void setSalary(double salary) {
 		this.salary=salary;
 	}
 	
@@ -93,8 +94,12 @@ public class Employee extends HotelBookingSystem{ //2.1 Inheritance
 		return this.contract;
 	}
 	
-	public int getSalary() {
+	public double getSalary() {
 		return this.salary;
+	}
+	
+	public double getPayment() { //2.5 Interface
+		return 5000;
 	}
 	
 	public void printInfo() { //2.2 Polymorphism - method printInfo
@@ -107,7 +112,7 @@ public class Employee extends HotelBookingSystem{ //2.1 Inheritance
 		setMedicalHistory("N/A");
 		setPosition("Manager");
 		setContract(2);
-		setSalary(5000);
+		setSalary(getPayment());
 		
 		System.out.println("========EMPLOYEE INFORMATION========");
 		System.out.println(
@@ -119,8 +124,9 @@ public class Employee extends HotelBookingSystem{ //2.1 Inheritance
 				"\nAddress\t\t\t: " + getAddress() +
 				"\nMedical History\t\t: " + getMedicalHistory() +
 				"\nPosition\t\t: " + getPosition() +
-				"\nDuration of contract\t: " + getContract() + " year(s)" +
-				"\nSalary(per month)\t: RM" + getSalary());
+				"\nDuration of contract\t: " + getContract() + " year(s)");
+		System.out.printf("Salary(per month)\t: RM%.2f" , getSalary());
+		System.out.println();
 	}
 
 }

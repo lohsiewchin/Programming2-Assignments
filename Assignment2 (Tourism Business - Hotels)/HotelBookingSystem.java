@@ -11,7 +11,7 @@ public abstract class HotelBookingSystem { //2.1 Inheritance & 2.4 Abstraction
 		setYear(2010);
 		
 		System.out.println("Company Name\t: " + getCompanyName()
-				+ "\nEstablished Year:" + getYear());
+				+ "\nEstablished Year: " + getYear());
 		contactUs();
 	}
 	
