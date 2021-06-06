@@ -4,15 +4,11 @@ public class HotelDescription extends HotelBookingSystem{ //2.1 Inheritance
 
 	String destination,hotel;
 	
-	public HotelDescription() { 
-		super();
-		
-		setDestination("Penang");
-		setHotel("Hotel Eastern & Oriental");
-		System.out.println("******************HOTEL DESCRIPTION******************");
-		System.out.println("The selected destination is " + getDestination());
-		System.out.println("The selected hotel is " + getHotel());
+	public HotelDescription(String name, int year) { 
+		super(name, year);
+	
 		printInfo();
+		contactUs();
 	}
 	
 	//2.3 Encapsulation - Setter methods
@@ -34,6 +30,14 @@ public class HotelDescription extends HotelBookingSystem{ //2.1 Inheritance
 	}
 	
 	public void printInfo() { //2.2 Polymorphism - method printInfo
+		super.printInfo();
+		
+		setDestination("Penang");
+		setHotel("Hotel Eastern & Oriental");
+		System.out.println("\n******************HOTEL DESCRIPTION******************");
+		System.out.println("The selected destination is " + getDestination());
+		System.out.println("The selected hotel is " + getHotel());
+		
 		if(getDestination()=="Johor") {
 			if (getHotel()=="Impiana Hotel Senai") {
 				Impiana();
@@ -152,6 +156,16 @@ public class HotelDescription extends HotelBookingSystem{ //2.1 Inheritance
 				"\nFree Wifi\t: Y" +
 				"\nSwimming Pool\t: Y" +
 				"\nRemarks\t\t: Free breakfast");
+	}
+	
+	public void contactUs() {
+		System.out.println("\n==========CONTACT US==========");
+		System.out.println("Hotline\t\t: 1300-88-8888"
+				+ "\nFax No.\t\t: 04-1357982"
+				+ "\nEmail\t\t: jgt2010@gmail.com"
+				+ "\nFacebook\t: Just Go Travel"
+				+ "\nInstagram\t: @justgotravelll"
+				+ "\nTwitter\t\t: @justgotravelll\n");
 	}
 	
 }

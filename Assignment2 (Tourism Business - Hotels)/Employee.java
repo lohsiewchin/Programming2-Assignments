@@ -7,13 +7,41 @@ public class Employee extends HotelBookingSystem implements Payment{ //2.1 Inher
 	char gender;
 	double salary;
 	
-	public Employee(String p, int id) { 
-		super();
+	public Employee(String name, int year, String p, int id) { 
+		super(name, year);
 		
 		System.out.println("***************EMPLOYEE***************");
 		position=p;
 		employeeID=id;
 		printInfo();
+		contactUs();
+	}
+	
+	public void printInfo() { //2.2 Polymorphism - method printInfo
+		setName("Loh Siew Chin");
+		setGender('F');
+		setAge(21);
+		setHP("0123456789");
+		setEmail("abcde@gmail.com");
+		setAddress("123, Jalan Emas, 11500 Pulau Pinang");
+		setMedicalHistory("N/A");
+		setPosition("Manager");
+		setContract(2);
+		setSalary(getPayment());
+		
+		System.out.println("========EMPLOYEE INFORMATION========");
+		System.out.println(
+				"Name\t\t\t: " + getName() +
+				"\nGender\t\t\t: " + getGender() +
+				"\nAge\t\t\t: " + getAge() +
+				"\nH/P No.\t\t\t: " + getHP() +
+				"\nEmail\t\t\t: " + getEmail() +
+				"\nAddress\t\t\t: " + getAddress() +
+				"\nMedical History\t\t: " + getMedicalHistory() +
+				"\nPosition\t\t: " + getPosition() +
+				"\nDuration of contract\t: " + getContract() + " year(s)");
+		System.out.printf("Salary(per month)\t: RM%.2f" , getSalary());
+		System.out.println();
 	}
 	
 	//2.3 Encapsulation - Setter methods
@@ -101,32 +129,14 @@ public class Employee extends HotelBookingSystem implements Payment{ //2.1 Inher
 	public double getPayment() { //2.5 Interface
 		return 5000;
 	}
-	
-	public void printInfo() { //2.2 Polymorphism - method printInfo
-		setName("Loh Siew Chin");
-		setGender('F');
-		setAge(21);
-		setHP("0123456789");
-		setEmail("abcde@gmail.com");
-		setAddress("123, Jalan Emas, 11500 Pulau Pinang");
-		setMedicalHistory("N/A");
-		setPosition("Manager");
-		setContract(2);
-		setSalary(getPayment());
-		
-		System.out.println("========EMPLOYEE INFORMATION========");
-		System.out.println(
-				"Name\t\t\t: " + getName() +
-				"\nGender\t\t\t: " + getGender() +
-				"\nAge\t\t\t: " + getAge() +
-				"\nH/P No.\t\t\t: " + getHP() +
-				"\nEmail\t\t\t: " + getEmail() +
-				"\nAddress\t\t\t: " + getAddress() +
-				"\nMedical History\t\t: " + getMedicalHistory() +
-				"\nPosition\t\t: " + getPosition() +
-				"\nDuration of contract\t: " + getContract() + " year(s)");
-		System.out.printf("Salary(per month)\t: RM%.2f" , getSalary());
-		System.out.println();
-	}
 
+	public void contactUs() {
+		System.out.println("\n==========CONTACT US==========");
+		System.out.println("Hotline\t\t: 1300-88-8888"
+				+ "\nFax No.\t\t: 04-1357982"
+				+ "\nEmail\t\t: jgt2010@gmail.com"
+				+ "\nFacebook\t: Just Go Travel"
+				+ "\nInstagram\t: @justgotravelll"
+				+ "\nTwitter\t\t: @justgotravelll\n");
+	}
 }

@@ -152,4 +152,5 @@ public abstract class Sales{ //2.1 Inheritance & 2.4 Abstraction
 			System.out.printf("Your final price after 10 percent discount is RM%.2f", finalPrice);
 		}
 	}
+	
 }

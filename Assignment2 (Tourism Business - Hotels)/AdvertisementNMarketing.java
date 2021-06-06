@@ -4,8 +4,8 @@ public class AdvertisementNMarketing extends HotelBookingSystem{ //2.1 Inheritan
 	
 	String socialmedia, printmedia;
 	
-	public AdvertisementNMarketing() {
-		super();
+	public AdvertisementNMarketing(String name, int year) {
+		super(name, year);
 		typeOfAdvertisement();
 		printInfo();
 	}
@@ -15,24 +15,6 @@ public class AdvertisementNMarketing extends HotelBookingSystem{ //2.1 Inheritan
 		System.out.println("We have two types of advertisement."
 				+ "\n1. Online advertisement on Social Media"
 				+ "\n2. Offline advertisement on Print Media");
-	}
-	
-	//2.3 Encapsulation - Setter methods
-	public void setSocialMedia(String socialmedia) {
-		this.socialmedia=socialmedia;
-	}
-	
-	public void setPrintMedia(String printmedia) {
-		this.printmedia=printmedia;
-	}
-	
-	//2.3 Encapsulation - Getter methods
-	public String getSocialMedia() {
-		return this.socialmedia;
-	}
-	
-	public String getPrintMedia() {
-		return this.printmedia;
 	}
 	
 	public void printInfo() { //2.2 Polymorphism - method printInfo
@@ -62,4 +44,32 @@ public class AdvertisementNMarketing extends HotelBookingSystem{ //2.1 Inheritan
 				+ "\nWebsite\t: www.jgt.com.my");
 		}
 	
+	//2.3 Encapsulation - Setter methods
+	public void setSocialMedia(String socialmedia) {
+		this.socialmedia=socialmedia;
 	}
+	
+	public void setPrintMedia(String printmedia) {
+		this.printmedia=printmedia;
+	}
+	
+	//2.3 Encapsulation - Getter methods
+	public String getSocialMedia() {
+		return this.socialmedia;
+	}
+	
+	public String getPrintMedia() {
+		return this.printmedia;
+	}
+	
+	public void contactUs() {
+		System.out.println("\n==========CONTACT US==========");
+		System.out.println("Hotline\t\t: 1300-88-8888"
+				+ "\nFax No.\t\t: 04-1357982"
+				+ "\nEmail\t\t: jgt2010@gmail.com"
+				+ "\nFacebook\t: Just Go Travel"
+				+ "\nInstagram\t: @justgotravelll"
+				+ "\nTwitter\t\t: @justgotravelll\n");
+	}
+	
+}

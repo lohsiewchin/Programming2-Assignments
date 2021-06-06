@@ -113,5 +113,5 @@ public class Finance extends Sales implements Payment{ //2.1 Inheritance & 2.5 I
 		calTotalExpenditure();
 		calNetIncome();
 	}
-	
+
 }
