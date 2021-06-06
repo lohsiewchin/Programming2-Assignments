@@ -70,7 +70,7 @@ public class AdvertisementNMarketing extends HotelBookingSystem{ //2.1 Inheritan
 				+ "\nEmail\t\t: jgt2010@gmail.com"
 				+ "\nFacebook\t: Just Go Travel"
 				+ "\nInstagram\t: @justgotravelll"
-				+ "\nTwitter\t\t: @justgotravelll\n");
+				+ "\nTwitter\t\t: @justgotravelll");
 	}
 	
 }
