@@ -8,6 +8,7 @@ public class AdvertisementNMarketing extends HotelBookingSystem{ //2.1 Inheritan
 		super(name, year);
 		typeOfAdvertisement();
 		printInfo();
+		contactUs();
 	}
 	
 	public void typeOfAdvertisement() {
