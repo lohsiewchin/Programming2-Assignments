@@ -3,7 +3,7 @@ package Assignment2;
 public class Main {
 
 	public static void main(String[] args) {
-System.out.println("Welcome to UUM Tourism Service - Hotel Booking System.");
+		System.out.println("Welcome to UUM Tourism Service - Hotel Booking System.");
 		
 		HotelDescription h = new HotelDescription("Just Go Travel", 2010);
 
