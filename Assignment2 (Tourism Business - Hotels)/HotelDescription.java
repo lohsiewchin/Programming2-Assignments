@@ -88,7 +88,7 @@ public class HotelDescription extends HotelBookingSystem{ //2.1 Inheritance
 				"\nRating\t\t: 4 stars" +
 				"\nPrice\t\t: RM548 per night" +
 				"\nRoom types\t: Deluxe rooms"+ 
-				"\n\t\t: Standard rooms, " + 
+				"\n\t\t: Standard rooms " + 
 				"\nFree Wifi\t: Y" +
 				"\nSwimming Pool\t: Y" +
 				"\nRemarks\t\t: Free cancellation" +
@@ -148,7 +148,7 @@ public class HotelDescription extends HotelBookingSystem{ //2.1 Inheritance
 		System.out.println("====================" + 
 				"\nPangkor Laut Resort" +
 				"\n====================");
-		System.out.println("Placed at Georgetown" +
+		System.out.println("Placed at 0.5km from the beach" +
 				"\nRating\t\t: 5 stars" +
 				"\nPrice\t\t: RM891 per night" +
 				"\nRoom types\t: Standard rooms"+ 
