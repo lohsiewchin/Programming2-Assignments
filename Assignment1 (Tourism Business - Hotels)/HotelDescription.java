@@ -169,7 +169,7 @@ public class HotelDescription{ //1.3 User Define Class
 		System.out.println("====================" + 
 				"\nPangkor Laut Resort" +
 				"\n====================");
-		System.out.println("Placed at Georgetown" +
+		System.out.println("Placed at 0.5km from the beach" +
 				"\nRating\t\t: 5 stars" +
 				"\nPrice\t\t: RM891 per night" +
 				"\nRoom types\t: Standard rooms"+ 
