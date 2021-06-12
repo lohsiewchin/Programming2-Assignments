@@ -117,20 +117,6 @@ public class Finance extends JFrame {
 		textFieldIncomeHotel.setColumns(10);
 		
 		textFieldIncomeAds = new JTextField();
-		textFieldIncomeAds.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					int incomeHotel = Integer.parseInt(textFieldIncomeHotel.getText());
-					int incomeAds = Integer.parseInt(textFieldIncomeAds.getText());
-					
-					int totalIncome = incomeHotel+incomeAds;
-					textFieldTotalIncome.setText(Integer.toString(totalIncome));
-					
-				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Please Enter Valid Number");
-				}
-			}
-		});
 		textFieldIncomeAds.setFont(new Font("Lucida Bright", Font.BOLD, 22));
 		textFieldIncomeAds.setColumns(10);
 		textFieldIncomeAds.setBounds(15, 112, 306, 26);
@@ -225,22 +211,6 @@ public class Finance extends JFrame {
 		panelExpenditures.add(lblMiscellaneous);
 		
 		textFieldMiscellaneous = new JTextField();
-		textFieldMiscellaneous.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					int maintainance = Integer.parseInt(textFieldMaintainance.getText());
-					int ads = Integer.parseInt(textFieldAds.getText());
-					int wages = Integer.parseInt(textFieldWages.getText());
-					int miscellaneous =Integer.parseInt(textFieldMiscellaneous.getText());
-					
-					int totalExpenditure = maintainance+ads+wages+miscellaneous;
-					textFieldTotalExpenditure.setText(Integer.toString(totalExpenditure));
-					
-				} catch (Exception e1) {
-					JOptionPane.showMessageDialog(null, "Please Enter Valid Number");
-				}
-			}
-		});
 		textFieldMiscellaneous.setFont(new Font("Lucida Bright", Font.BOLD, 22));
 		textFieldMiscellaneous.setColumns(10);
 		textFieldMiscellaneous.setBounds(15, 205, 306, 26);
@@ -257,8 +227,19 @@ public class Finance extends JFrame {
 		buttonCal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int totalIncome = Integer.parseInt(textFieldTotalIncome.getText());
-					int totalExpenditure = Integer.parseInt(textFieldTotalExpenditure.getText());
+					int incomeHotel = Integer.parseInt(textFieldIncomeHotel.getText());
+					int incomeAds = Integer.parseInt(textFieldIncomeAds.getText());
+					
+					int totalIncome = incomeHotel+incomeAds;
+					textFieldTotalIncome.setText(Integer.toString(totalIncome));
+					
+					int maintainance = Integer.parseInt(textFieldMaintainance.getText());
+					int ads = Integer.parseInt(textFieldAds.getText());
+					int wages = Integer.parseInt(textFieldWages.getText());
+					int miscellaneous =Integer.parseInt(textFieldMiscellaneous.getText());
+					
+					int totalExpenditure = maintainance+ads+wages+miscellaneous;
+					textFieldTotalExpenditure.setText(Integer.toString(totalExpenditure));
 					
 					int NetProfit = totalIncome-totalExpenditure;
 					textFieldNetProfit.setText(Integer.toString(NetProfit));
