@@ -26,6 +26,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.math.BigDecimal;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 public class Sales extends JFrame {
 
@@ -38,6 +40,7 @@ public class Sales extends JFrame {
 	private JTable tableSales;
 	private JTextField textFieldQuantity;
 	private JPanel panelButton;
+	private final ButtonGroup buttonGroupPaymentMethod = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -60,7 +63,7 @@ public class Sales extends JFrame {
 	 */
 	public Sales() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1155, 671);
+		setBounds(100, 100, 1158, 680);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 250));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(238, 130, 238)));
@@ -84,14 +87,14 @@ public class Sales extends JFrame {
 		panelTable.setLayout(null);
 		panelTable.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(238, 130, 238)));
 		panelTable.setBackground(new Color(255, 240, 245));
-		panelTable.setBounds(542, 105, 584, 407);
+		panelTable.setBounds(542, 105, 584, 427);
 		contentPane.add(panelTable);
 		
 		JButton buttonUpload = new JButton("Upload");
 		buttonUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("C:\\Users\\User\\Documents\\ѧϰ\\STIA1123 PROGRAMMING 2\\Assignments\\Assignment 3\\Sales.txt");
+					File file = new File("C:\\Users\\User\\Documents\\ѧϰ\\STIA1123 PROGRAMMING 2\\Assignments\\Assignment 3\\txt files\\Sales.txt");
 					if(!file.exists()) {
 						file.createNewFile();
 						}
@@ -102,7 +105,7 @@ public class Sales extends JFrame {
 						for (int j=0; j<tableSales.getColumnCount(); j++) {
 							bw.write(tableSales.getModel().getValueAt(i, j) + "  |  ");
 							}
-						bw.write("\n______________________________________________________________________________________________________\n");
+						bw.write("\n______________________________________________________________________________________________________________________\n");
 						}
 						bw.close();
 						fw.close();
@@ -128,7 +131,7 @@ public class Sales extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"Destination", "Hotel", "Type Of Room", "Price", "Quantity", "Duration", "Total Price", "Discount", "Final Price"
+				"Destination", "Hotel", "Type Of Room", "Price", "Quantity", "Duration", "Total Price", "Discount", "Final Price", "Payment Method"
 			}
 		));
 		scrollPane.setViewportView(tableSales);
@@ -137,27 +140,27 @@ public class Sales extends JFrame {
 		panelInput.setLayout(null);
 		panelInput.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(238, 130, 238)));
 		panelInput.setBackground(new Color(255, 240, 245));
-		panelInput.setBounds(15, 105, 524, 407);
+		panelInput.setBounds(15, 105, 524, 427);
 		contentPane.add(panelInput);
 		
 		JLabel lblDestination = new JLabel("Destination");
 		lblDestination.setFont(new Font("Lucida Bright", Font.BOLD, 20));
-		lblDestination.setBounds(15, 16, 160, 30);
+		lblDestination.setBounds(15, 16, 168, 30);
 		panelInput.add(lblDestination);
 		
 		JComboBox comboBoxDestination = new JComboBox();
 		comboBoxDestination.setModel(new DefaultComboBoxModel(new String[] {"Please Select", "Johor", "Penang", "Perak"}));
-		comboBoxDestination.setBounds(179, 16, 330, 30);
+		comboBoxDestination.setBounds(192, 16, 317, 30);
 		panelInput.add(comboBoxDestination);
 		comboBoxDestination.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		JLabel lblHotel = new JLabel("Hotel");
-		lblHotel.setBounds(15, 54, 160, 30);
+		lblHotel.setBounds(15, 54, 168, 30);
 		panelInput.add(lblHotel);
 		lblHotel.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		JComboBox comboBoxHotel = new JComboBox();
-		comboBoxHotel.setBounds(179, 54, 330, 30);
+		comboBoxHotel.setBounds(192, 54, 317, 30);
 		panelInput.add(comboBoxHotel);
 		comboBoxHotel.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
@@ -180,12 +183,12 @@ public class Sales extends JFrame {
 		});
 		
 		JLabel lblTypeOfRoom = new JLabel("Type Of Room");
-		lblTypeOfRoom.setBounds(15, 92, 160, 30);
+		lblTypeOfRoom.setBounds(15, 92, 168, 30);
 		panelInput.add(lblTypeOfRoom);
 		lblTypeOfRoom.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		JComboBox comboBoxTypeOfRoom = new JComboBox();
-		comboBoxTypeOfRoom.setBounds(179, 92, 330, 30);
+		comboBoxTypeOfRoom.setBounds(192, 92, 317, 30);
 		panelInput.add(comboBoxTypeOfRoom);
 		comboBoxTypeOfRoom.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
@@ -315,12 +318,12 @@ public class Sales extends JFrame {
 		});
 		
 		JLabel lblPrice = new JLabel("Price (RM)");
-		lblPrice.setBounds(15, 130, 160, 30);
+		lblPrice.setBounds(15, 130, 168, 30);
 		panelInput.add(lblPrice);
 		lblPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		textFieldPrice = new JTextField();
-		textFieldPrice.setBounds(179, 130, 330, 30);
+		textFieldPrice.setBounds(192, 130, 317, 30);
 		panelInput.add(textFieldPrice);
 		textFieldPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		textFieldPrice.setColumns(10);
@@ -331,7 +334,7 @@ public class Sales extends JFrame {
 		lblPerRoom.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		JLabel lblDuration = new JLabel("Duration");
-		lblDuration.setBounds(15, 206, 160, 30);
+		lblDuration.setBounds(15, 206, 168, 30);
 		panelInput.add(lblDuration);
 		lblDuration.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
@@ -361,7 +364,7 @@ public class Sales extends JFrame {
 					}
 				}
 		});
-		textFieldDuration.setBounds(179, 206, 330, 30);
+		textFieldDuration.setBounds(192, 206, 317, 30);
 		panelInput.add(textFieldDuration);
 		textFieldDuration.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		textFieldDuration.setColumns(10);
@@ -372,47 +375,47 @@ public class Sales extends JFrame {
 		lblNights.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		textFieldTotalPrice = new JTextField();
-		textFieldTotalPrice.setBounds(180, 244, 329, 30);
+		textFieldTotalPrice.setBounds(193, 244, 316, 30);
 		panelInput.add(textFieldTotalPrice);
 		textFieldTotalPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		textFieldTotalPrice.setColumns(10);
 		
 		textFieldDiscount = new JTextField();
-		textFieldDiscount.setBounds(179, 282, 330, 30);
+		textFieldDiscount.setBounds(192, 282, 317, 30);
 		panelInput.add(textFieldDiscount);
 		textFieldDiscount.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		textFieldDiscount.setColumns(10);
 		
 		JLabel lblFinalPrice = new JLabel("Final Price (RM)");
-		lblFinalPrice.setBounds(15, 320, 160, 30);
+		lblFinalPrice.setBounds(15, 320, 168, 30);
 		panelInput.add(lblFinalPrice);
 		lblFinalPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		JLabel lblDiscount = new JLabel("Discount");
-		lblDiscount.setBounds(15, 282, 160, 30);
+		lblDiscount.setBounds(15, 282, 168, 30);
 		panelInput.add(lblDiscount);
 		lblDiscount.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		JLabel lblTotalPrice = new JLabel("Total Price (RM)");
-		lblTotalPrice.setBounds(15, 244, 160, 30);
+		lblTotalPrice.setBounds(15, 244, 168, 30);
 		panelInput.add(lblTotalPrice);
 		lblTotalPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		textFieldFinalPrice = new JTextField();
 		textFieldFinalPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		textFieldFinalPrice.setColumns(10);
-		textFieldFinalPrice.setBounds(179, 320, 330, 30);
+		textFieldFinalPrice.setBounds(192, 320, 317, 30);
 		panelInput.add(textFieldFinalPrice);
 		
 		JLabel labelQuantity = new JLabel("Quantity");
 		labelQuantity.setFont(new Font("Lucida Bright", Font.BOLD, 20));
-		labelQuantity.setBounds(15, 168, 160, 30);
+		labelQuantity.setBounds(15, 168, 168, 30);
 		panelInput.add(labelQuantity);
 		
 		textFieldQuantity = new JTextField();
 		textFieldQuantity.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		textFieldQuantity.setColumns(10);
-		textFieldQuantity.setBounds(179, 168, 330, 30);
+		textFieldQuantity.setBounds(192, 168, 317, 30);
 		panelInput.add(textFieldQuantity);
 		
 		JLabel labelRooms = new JLabel("room(s)");
@@ -420,11 +423,30 @@ public class Sales extends JFrame {
 		labelRooms.setBounds(412, 168, 97, 30);
 		panelInput.add(labelRooms);
 		
+		JLabel labelPaymentMethod = new JLabel("Payment Method");
+		labelPaymentMethod.setFont(new Font("Lucida Bright", Font.BOLD, 20));
+		labelPaymentMethod.setBounds(15, 358, 168, 30);
+		panelInput.add(labelPaymentMethod);
+		
+		JRadioButton rdbtnOnlineBanking = new JRadioButton("Online Banking");
+		rdbtnOnlineBanking.setActionCommand("Online Banking");
+		buttonGroupPaymentMethod.add(rdbtnOnlineBanking);
+		rdbtnOnlineBanking.setFont(new Font("Lucida Bright", Font.BOLD, 20));
+		rdbtnOnlineBanking.setBounds(192, 358, 225, 29);
+		panelInput.add(rdbtnOnlineBanking);
+		
+		JRadioButton rdbtnDebitCreditCard = new JRadioButton("Debit/Credit Card");
+		rdbtnDebitCreditCard.setActionCommand("Debit/Credit Card");
+		buttonGroupPaymentMethod.add(rdbtnDebitCreditCard);
+		rdbtnDebitCreditCard.setFont(new Font("Lucida Bright", Font.BOLD, 20));
+		rdbtnDebitCreditCard.setBounds(192, 386, 225, 29);
+		panelInput.add(rdbtnDebitCreditCard);
+		
 		panelButton = new JPanel();
 		panelButton.setLayout(null);
 		panelButton.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(238, 130, 238)));
 		panelButton.setBackground(new Color(255, 240, 245));
-		panelButton.setBounds(15, 520, 1111, 87);
+		panelButton.setBounds(15, 538, 1111, 87);
 		contentPane.add(panelButton);
 		
 		JButton buttonAddRecord = new JButton("Add Record");
@@ -442,6 +464,7 @@ public class Sales extends JFrame {
 						textFieldTotalPrice.getText(),
 						textFieldDiscount.getText(),
 						textFieldFinalPrice.getText(),
+						buttonGroupPaymentMethod.getSelection().getActionCommand(),
 				});
 				
 				if (tableSales.getSelectedRow() == -1) {
@@ -469,6 +492,7 @@ public class Sales extends JFrame {
 				textFieldTotalPrice.setText("");
 				textFieldDiscount.setText("");
 				textFieldFinalPrice.setText("");
+				buttonGroupPaymentMethod.clearSelection();
 			}
 		});
 		buttonReset.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
@@ -492,6 +516,7 @@ public class Sales extends JFrame {
 			    	model.setValueAt(textFieldTotalPrice.getText(), i, 6);
 			    	model.setValueAt(textFieldDiscount.getText(), i, 7);
 			    	model.setValueAt(textFieldFinalPrice.getText(), i, 8);
+			    	model.setValueAt(buttonGroupPaymentMethod.getSelection().getActionCommand(), i, 9);
 			    	
 					JOptionPane.showMessageDialog(null, "Update Successfully");
 			    }

@@ -24,6 +24,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 public class CustomerRegistration extends JFrame {
 
@@ -33,6 +35,7 @@ public class CustomerRegistration extends JFrame {
 	private JTextField textFieldAge;
 	private JTextField textFieldHPNo;
 	private JTextField textFieldEmail;
+	private final ButtonGroup buttonGroupGender = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -86,7 +89,7 @@ public class CustomerRegistration extends JFrame {
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("C:\\Users\\User\\Documents\\ѧϰ\\STIA1123 PROGRAMMING 2\\Assignments\\Assignment 3\\Customer Information.txt");
+					File file = new File("C:\\Users\\User\\Documents\\ѧϰ\\STIA1123 PROGRAMMING 2\\Assignments\\Assignment 3\\txt files\\Customer Information.txt");
 					if(!file.exists()) {
 						file.createNewFile();
 						}
@@ -171,13 +174,6 @@ public class CustomerRegistration extends JFrame {
 		textFieldAge.setBounds(15, 125, 278, 34);
 		panelInput.add(textFieldAge);
 		
-		JComboBox comboBoxGender = new JComboBox();
-		comboBoxGender.setModel(new DefaultComboBoxModel(new String[] {"Please Select", "Male", "Female"}));
-		comboBoxGender.setToolTipText("");
-		comboBoxGender.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
-		comboBoxGender.setBounds(15, 196, 278, 30);
-		panelInput.add(comboBoxGender);
-		
 		textFieldHPNo = new JTextField();
 		textFieldHPNo.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		textFieldHPNo.setColumns(10);
@@ -189,6 +185,20 @@ public class CustomerRegistration extends JFrame {
 		textFieldEmail.setColumns(10);
 		textFieldEmail.setBounds(15, 338, 278, 34);
 		panelInput.add(textFieldEmail);
+		
+		JRadioButton rdbtnMale = new JRadioButton("Male");
+		rdbtnMale.setActionCommand("Male");
+		buttonGroupGender.add(rdbtnMale);
+		rdbtnMale.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+		rdbtnMale.setBounds(15, 196, 109, 30);
+		panelInput.add(rdbtnMale);
+		
+		JRadioButton rdbtnFemale = new JRadioButton("Female");
+		rdbtnFemale.setActionCommand("Female");
+		buttonGroupGender.add(rdbtnFemale);
+		rdbtnFemale.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+		rdbtnFemale.setBounds(138, 196, 109, 30);
+		panelInput.add(rdbtnFemale);
 		
 		JPanel panelButton = new JPanel();
 		panelButton.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 192, 203)));
@@ -205,7 +215,7 @@ public class CustomerRegistration extends JFrame {
 				model.addRow(new Object[]{
 						textFieldName.getText(),
 						textFieldAge.getText(),
-						comboBoxGender.getSelectedItem(),
+						buttonGroupGender.getSelection().getActionCommand(),
 						textFieldHPNo.getText(),
 						textFieldEmail.getText(),
 						
@@ -229,7 +239,7 @@ public class CustomerRegistration extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textFieldName.setText("");
 				textFieldAge.setText("");
-				comboBoxGender.setSelectedItem("Please Select");
+				buttonGroupGender.clearSelection();
 				textFieldHPNo.setText("");
 				textFieldEmail.setText("");
 			}
@@ -248,7 +258,7 @@ public class CustomerRegistration extends JFrame {
 			    {
 			    	model.setValueAt(textFieldName.getText(), i, 0);
 			    	model.setValueAt(textFieldAge.getText(), i, 1);
-			    	model.setValueAt(comboBoxGender.getSelectedItem(), i, 2);
+			    	model.setValueAt(buttonGroupGender.getSelection().getActionCommand(), i, 2);
 			    	model.setValueAt(textFieldHPNo.getText(), i, 3);
 			    	model.setValueAt(textFieldEmail.getText(), i, 4);
 			    	

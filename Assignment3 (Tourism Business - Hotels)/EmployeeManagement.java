@@ -24,6 +24,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 public class EmployeeManagement extends JFrame {
 
@@ -36,6 +38,7 @@ public class EmployeeManagement extends JFrame {
 	private JTextField textFieldAddress;
 	private JTextField textFieldPosition;
 	private JTextField textFieldSalary;
+	private final ButtonGroup buttonGroupGender = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -172,12 +175,6 @@ public class EmployeeManagement extends JFrame {
 		textFieldSalary.setBounds(114, 344, 116, 30);
 		panelInput.add(textFieldSalary);
 		
-		JComboBox comboBoxGender = new JComboBox();
-		comboBoxGender.setModel(new DefaultComboBoxModel(new String[] {"Please Select", "Male", "Female"}));
-		comboBoxGender.setFont(new Font("Lucida Bright", Font.BOLD, 20));
-		comboBoxGender.setBounds(114, 93, 223, 30);
-		panelInput.add(comboBoxGender);
-		
 		JComboBox comboBoxContract = new JComboBox();
 		comboBoxContract.setModel(new DefaultComboBoxModel(new String[] {"Please Select", "1 year", "2 years", "5 years"}));
 		comboBoxContract.setFont(new Font("Lucida Bright", Font.BOLD, 20));
@@ -188,6 +185,22 @@ public class EmployeeManagement extends JFrame {
 		lblPerMonth.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		lblPerMonth.setBounds(234, 344, 104, 30);
 		panelInput.add(lblPerMonth);
+		
+		JRadioButton rdbtnMale = new JRadioButton("Male");
+		rdbtnMale.setActionCommand("Male");
+		buttonGroupGender.add(rdbtnMale);
+		rdbtnMale.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+		rdbtnMale.setActionCommand("Male");
+		rdbtnMale.setBounds(114, 93, 107, 30);
+		panelInput.add(rdbtnMale);
+		
+		JRadioButton rdbtnFemale = new JRadioButton("Female");
+		rdbtnFemale.setActionCommand("Female");
+		buttonGroupGender.add(rdbtnFemale);
+		rdbtnFemale.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+		rdbtnFemale.setActionCommand("Female");
+		rdbtnFemale.setBounds(230, 93, 107, 30);
+		panelInput.add(rdbtnFemale);
 		
 		JPanel panelButton = new JPanel();
 		panelButton.setLayout(null);
@@ -204,7 +217,7 @@ public class EmployeeManagement extends JFrame {
 				model.addRow(new Object[]{
 						textFieldName.getText(),
 						textFieldAge.getText(),
-						comboBoxGender.getSelectedItem(),
+						buttonGroupGender.getSelection().getActionCommand(),
 						textFieldHPNo.getText(),
 						textFieldEmail.getText(),
 						textFieldAddress.getText(),
@@ -232,7 +245,7 @@ public class EmployeeManagement extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textFieldName.setText("");
 				textFieldAge.setText("");
-				comboBoxGender.setSelectedItem("Please Select");
+				buttonGroupGender.clearSelection();
 				textFieldHPNo.setText("");
 				textFieldEmail.setText("");
 				textFieldAddress.setText("");
@@ -255,7 +268,7 @@ public class EmployeeManagement extends JFrame {
 			    {
 			    	model.setValueAt(textFieldName.getText(), i, 0);
 			    	model.setValueAt(textFieldAge.getText(), i, 1);
-			    	model.setValueAt(comboBoxGender.getSelectedItem(), i, 2);
+			    	model.setValueAt(buttonGroupGender.getSelection().getActionCommand(), i, 2);
 			    	model.setValueAt(textFieldHPNo.getText(), i, 3);
 			    	model.setValueAt(textFieldEmail.getText(), i, 4);
 			    	model.setValueAt(textFieldAddress.getText(), i, 5);
@@ -339,7 +352,7 @@ public class EmployeeManagement extends JFrame {
 		buttonUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					File file = new File("C:\\Users\\User\\Documents\\ѧϰ\\STIA1123 PROGRAMMING 2\\Assignments\\Assignment 3\\Employee Information.txt");
+					File file = new File("C:\\Users\\User\\Documents\\ѧϰ\\STIA1123 PROGRAMMING 2\\Assignments\\Assignment 3\\txt files\\Employee Information.txt");
 					if(!file.exists()) {
 						file.createNewFile();
 						}
