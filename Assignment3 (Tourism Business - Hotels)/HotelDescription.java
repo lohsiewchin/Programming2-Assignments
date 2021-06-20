@@ -48,7 +48,7 @@ public class HotelDescription extends JFrame {
 	 */
 	public HotelDescription() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1007, 686);
+		setBounds(100, 100, 1007, 663);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -179,7 +179,7 @@ public class HotelDescription extends JFrame {
 		panelHotelDetails.setLayout(null);
 		panelHotelDetails.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(70, 130, 180)));
 		panelHotelDetails.setBackground(new Color(240, 255, 255));
-		panelHotelDetails.setBounds(489, 103, 480, 496);
+		panelHotelDetails.setBounds(489, 103, 480, 480);
 		contentPane.add(panelHotelDetails);
 		
 		JLabel labelHotelName = new JLabel("");
@@ -190,7 +190,7 @@ public class HotelDescription extends JFrame {
 		JTextArea textAreaHotelDetails = new JTextArea();
 		textAreaHotelDetails.setFont(new Font("Lucida Bright", Font.BOLD, 23));
 		textAreaHotelDetails.setBackground(new Color(240, 255, 255));
-		textAreaHotelDetails.setBounds(15, 54, 450, 426);
+		textAreaHotelDetails.setBounds(15, 54, 450, 410);
 		panelHotelDetails.add(textAreaHotelDetails);
 		
 		JButton btnReset = new JButton("Reset");
@@ -204,7 +204,7 @@ public class HotelDescription extends JFrame {
 		});
 		btnReset.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnReset.setBackground(new Color(135, 206, 250));
-		btnReset.setBounds(244, 523, 190, 76);
+		btnReset.setBounds(248, 523, 190, 60);
 		contentPane.add(btnReset);
 		
 		JButton btnCheck = new JButton("Check");
@@ -302,7 +302,7 @@ public class HotelDescription extends JFrame {
 		});
 		btnCheck.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnCheck.setBackground(new Color(135, 206, 250));
-		btnCheck.setBounds(43, 523, 190, 76);
+		btnCheck.setBounds(43, 523, 190, 60);
 		contentPane.add(btnCheck);
 	}
 }
