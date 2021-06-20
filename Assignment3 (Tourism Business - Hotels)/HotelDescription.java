@@ -19,6 +19,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class HotelDescription extends JFrame {
 
@@ -45,7 +48,68 @@ public class HotelDescription extends JFrame {
 	 */
 	public HotelDescription() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1007, 671);
+		setBounds(100, 100, 1007, 686);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnHome = new JMenu("Home");
+		menuBar.add(mnHome);
+		
+		JMenuItem mntmRegistration = new JMenuItem("Registration");
+		mntmRegistration.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerRegistration cusreg = new CustomerRegistration();
+				cusreg.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmRegistration);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Place Order");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sales sales = new Sales();
+				sales.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmNewMenuItem);
+		
+		JMenuItem mntmAboutUs = new JMenuItem("About Us");
+		mntmAboutUs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CompanyBackground bgr = new CompanyBackground();
+				bgr.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmAboutUs);
+		
+		JMenu mnExit = new JMenu("Exit");
+		menuBar.add(mnExit);
+		
+		JMenuItem mntmLogOut = new JMenuItem("Log Out");
+		mntmLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		mnExit.add(mntmLogOut);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame frame = new JFrame();
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Hotel Description", 
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		mnExit.add(mntmExit);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(70, 130, 180)));

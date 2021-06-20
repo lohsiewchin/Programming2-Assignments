@@ -16,6 +16,9 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class Finance extends JFrame {
 
@@ -52,7 +55,71 @@ public class Finance extends JFrame {
 	public Finance() {
 		setBackground(new Color(240, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 948, 671);
+		setBounds(100, 100, 948, 661);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnHome = new JMenu("Home");
+		menuBar.add(mnHome);
+		
+		JMenuItem mntmEmployeeManagement = new JMenuItem("Employee Management");
+		mntmEmployeeManagement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EmployeeManagement employee = new EmployeeManagement();
+				employee.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmEmployeeManagement);
+		
+		JMenu mnAdvertisement = new JMenu("Advertisement");
+		mnHome.add(mnAdvertisement);
+		
+		JMenuItem mntmOnlineAdvertisement = new JMenuItem("Online Advertisement");
+		mntmOnlineAdvertisement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OnlineAdvertisement onlineAds = new OnlineAdvertisement();
+				onlineAds.setVisible(true);
+				dispose();
+			}
+		});
+		mnAdvertisement.add(mntmOnlineAdvertisement);
+		
+		JMenuItem mntmOfflineAdvertisement = new JMenuItem("Offline Advertisement");
+		mntmOfflineAdvertisement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OfflineAdvertisement offlineAds = new OfflineAdvertisement();
+				offlineAds.setVisible(true);
+				dispose();
+			}
+		});
+		mnAdvertisement.add(mntmOfflineAdvertisement);
+		
+		JMenu mnExit = new JMenu("Exit");
+		menuBar.add(mnExit);
+		
+		JMenuItem mntmLogOut = new JMenuItem("Log Out");
+		mntmLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		mnExit.add(mntmLogOut);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame frame = new JFrame();
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Hotel Description", 
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		mnExit.add(mntmExit);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 218, 185));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 165, 0)));
@@ -220,7 +287,7 @@ public class Finance extends JFrame {
 		panelnetProfit.setLayout(null);
 		panelnetProfit.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 165, 0)));
 		panelnetProfit.setBackground(new Color(255, 235, 205));
-		panelnetProfit.setBounds(15, 488, 896, 118);
+		panelnetProfit.setBounds(15, 486, 896, 95);
 		contentPane.add(panelnetProfit);
 		
 		JButton buttonCal = new JButton("Calculate");
@@ -249,19 +316,19 @@ public class Finance extends JFrame {
 				}
 			}
 		});
-		buttonCal.setBounds(249, 65, 190, 42);
+		buttonCal.setBounds(249, 44, 190, 42);
 		panelnetProfit.add(buttonCal);
 		buttonCal.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		buttonCal.setBackground(new Color(255, 255, 153));
 		
 		JLabel lblNetProfit = new JLabel("The Net Profit is RM");
-		lblNetProfit.setBounds(132, 16, 314, 42);
+		lblNetProfit.setBounds(132, 10, 314, 30);
 		panelnetProfit.add(lblNetProfit);
 		lblNetProfit.setFont(new Font("Lucida Bright", Font.BOLD, 30));
 		
 		textFieldNetProfit = new JTextField();
 		textFieldNetProfit.setFont(new Font("Lucida Bright", Font.BOLD, 30));
-		textFieldNetProfit.setBounds(449, 16, 277, 42);
+		textFieldNetProfit.setBounds(449, 10, 277, 30);
 		panelnetProfit.add(textFieldNetProfit);
 		textFieldNetProfit.setColumns(10);
 		
@@ -281,7 +348,7 @@ public class Finance extends JFrame {
 		});
 		btnReset.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnReset.setBackground(new Color(255, 255, 153));
-		btnReset.setBounds(454, 65, 190, 42);
+		btnReset.setBounds(454, 44, 190, 42);
 		panelnetProfit.add(btnReset);
 	}
 }

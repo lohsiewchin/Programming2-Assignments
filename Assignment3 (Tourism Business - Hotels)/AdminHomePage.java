@@ -14,6 +14,10 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 public class AdminHomePage extends JFrame {
 
@@ -40,7 +44,35 @@ public class AdminHomePage extends JFrame {
 	 */
 	public AdminHomePage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 948, 671);
+		setBounds(100, 100, 948, 623);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnExit = new JMenu("Exit");
+		menuBar.add(mnExit);
+		
+		JMenuItem mntmLogOut = new JMenuItem("Log Out");
+		mntmLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		mnExit.add(mntmLogOut);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame frame = new JFrame();
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Hotel Description", 
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		mnExit.add(mntmExit);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(70, 130, 180)));
@@ -66,6 +98,7 @@ public class AdminHomePage extends JFrame {
 				EmployeeManagement EmpMngmt = new EmployeeManagement();
 				EmpMngmt.setModalExclusionType(null);
 				EmpMngmt.setVisible(true);
+				dispose();
 			}
 		});
 		btnEmployeeManagement.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
@@ -79,6 +112,7 @@ public class AdminHomePage extends JFrame {
 				AdvertisementNMarketing Ads = new AdvertisementNMarketing();
 				Ads.setModalExclusionType(null);
 				Ads.setVisible(true);
+				dispose();
 			}
 		});
 		btnAdvertisementMarketing.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
@@ -92,6 +126,7 @@ public class AdminHomePage extends JFrame {
 				Finance finance = new Finance();
 				finance.setModalExclusionType(null);
 				finance.setVisible(true);
+				dispose();
 			}
 		});
 		btnFinance.setFont(new Font("Britannic Bold", Font.PLAIN, 30));

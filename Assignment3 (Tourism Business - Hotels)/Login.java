@@ -47,7 +47,7 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 948, 670);
+		setBounds(100, 100, 909, 570);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 228, 196));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 182, 193)));
@@ -57,7 +57,7 @@ public class Login extends JFrame {
 		JPanel panelJustGoTravel = new JPanel();
 		panelJustGoTravel.setBackground(new Color(250, 235, 215));
 		panelJustGoTravel.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 192, 203)));
-		panelJustGoTravel.setBounds(35, 43, 856, 104);
+		panelJustGoTravel.setBounds(15, 16, 856, 104);
 		contentPane.add(panelJustGoTravel);
 		panelJustGoTravel.setLayout(null);
 		
@@ -71,34 +71,34 @@ public class Login extends JFrame {
 		panelLogin.setLayout(null);
 		panelLogin.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 192, 203)));
 		panelLogin.setBackground(new Color(250, 235, 215));
-		panelLogin.setBounds(35, 163, 856, 416);
+		panelLogin.setBounds(15, 136, 856, 378);
 		contentPane.add(panelLogin);
 		
 		JComboBox comboBoxSelection = new JComboBox();
 		comboBoxSelection.setFont(new Font("Eras Medium ITC", Font.PLAIN, 30));
 		comboBoxSelection.setModel(new DefaultComboBoxModel(new String[] {"Please Select", "I'm a Customer", "I'm an Admin"}));
-		comboBoxSelection.setBounds(280, 87, 292, 37);
+		comboBoxSelection.setBounds(280, 71, 292, 37);
 		panelLogin.add(comboBoxSelection);
 		
 		JLabel LabelUserName = new JLabel("User Name");
 		LabelUserName.setFont(new Font("Eras Medium ITC", Font.PLAIN, 35));
-		LabelUserName.setBounds(195, 161, 188, 48);
+		LabelUserName.setBounds(195, 124, 188, 48);
 		panelLogin.add(LabelUserName);
 		
 		JLabel LabelPassword = new JLabel("Password");
 		LabelPassword.setFont(new Font("Eras Medium ITC", Font.PLAIN, 35));
-		LabelPassword.setBounds(195, 246, 188, 48);
+		LabelPassword.setBounds(195, 209, 188, 48);
 		panelLogin.add(LabelPassword);
 		
 		textFieldUsername = new JTextField();
 		textFieldUsername.setFont(new Font("Eras Medium ITC", Font.PLAIN, 30));
-		textFieldUsername.setBounds(398, 161, 278, 48);
+		textFieldUsername.setBounds(398, 124, 278, 48);
 		panelLogin.add(textFieldUsername);
 		textFieldUsername.setColumns(10);
 		
 		textFieldPassword = new JTextField();
 		textFieldPassword.setFont(new Font("Eras Medium ITC", Font.PLAIN, 30));
-		textFieldPassword.setBounds(398, 246, 278, 48);
+		textFieldPassword.setBounds(398, 209, 278, 48);
 		panelLogin.add(textFieldPassword);
 		textFieldPassword.setColumns(10);
 		
@@ -107,22 +107,24 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					if (comboBoxSelection.getSelectedItem().equals("I'm a Customer")) {
-						if(textFieldUsername.getText().equals("user123") && textFieldPassword.getText().equals("uabc123")) {
+						if(textFieldUsername.getText().equals("user") && textFieldPassword.getText().equals("abc123")) {
 							JOptionPane.showMessageDialog(null, "Login Sucessful");
 							
 							UserHomePage UserHome = new UserHomePage(); //calling another frame/window
 							UserHome.setModalExclusionType(null);
 					        UserHome.setVisible(true);
+					        dispose();
 						}else
 							JOptionPane.showMessageDialog(null, "Please enter the valid User Name and Password");
 					}
 					else if (comboBoxSelection.getSelectedItem().equals("I'm an Admin")) {
-						if(textFieldUsername.getText().equals("admin456") && textFieldPassword.getText().equals("aefg456")) {
+						if(textFieldUsername.getText().equals("admin") && textFieldPassword.getText().equals("efg456")) {
 							JOptionPane.showMessageDialog(null, "Login Sucessful");
 							
 							AdminHomePage AdminHome = new AdminHomePage(); //calling another frame/window
 							AdminHome.setModalExclusionType(null);
 					        AdminHome.setVisible(true);
+					        dispose();
 						}else
 							JOptionPane.showMessageDialog(null, "Please enter the valid User Name and Password");
 					}else {
@@ -136,7 +138,7 @@ public class Login extends JFrame {
 		});
 		ButtonLogin.setBackground(new Color(255, 192, 203));
 		ButtonLogin.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
-		ButtonLogin.setBounds(195, 322, 209, 60);
+		ButtonLogin.setBounds(195, 285, 209, 60);
 		panelLogin.add(ButtonLogin);
 		
 		JLabel LabelWelcome = new JLabel("Welcome to UUM Tourism Service ----- Just Go Travel");
@@ -155,7 +157,7 @@ public class Login extends JFrame {
 		});
 		ButtonReset.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		ButtonReset.setBackground(new Color(255, 192, 203));
-		ButtonReset.setBounds(467, 322, 209, 60);
+		ButtonReset.setBounds(467, 285, 209, 60);
 		panelLogin.add(ButtonReset);
 
 	}

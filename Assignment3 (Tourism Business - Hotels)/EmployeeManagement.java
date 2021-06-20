@@ -17,6 +17,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -26,6 +28,9 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class EmployeeManagement extends JFrame {
 
@@ -61,7 +66,71 @@ public class EmployeeManagement extends JFrame {
 	 */
 	public EmployeeManagement() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 994, 671);
+		setBounds(100, 100, 994, 659);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnHome = new JMenu("Home");
+		menuBar.add(mnHome);
+		
+		JMenu mnAdvertisement = new JMenu("Advertisement");
+		mnHome.add(mnAdvertisement);
+		
+		JMenuItem mntmOnlineAdvertisement = new JMenuItem("Online Advertisement");
+		mntmOnlineAdvertisement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OnlineAdvertisement onlineAds = new OnlineAdvertisement();
+				onlineAds.setVisible(true);
+				dispose();
+			}
+		});
+		mnAdvertisement.add(mntmOnlineAdvertisement);
+		
+		JMenuItem mntmOfflineAdvertisement = new JMenuItem("Offline Advertisement");
+		mntmOfflineAdvertisement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OfflineAdvertisement offlineAds = new OfflineAdvertisement();
+				offlineAds.setVisible(true);
+				dispose();
+			}
+		});
+		mnAdvertisement.add(mntmOfflineAdvertisement);
+		
+		JMenuItem mntmFinance = new JMenuItem("Finance");
+		mntmFinance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Finance finance = new Finance();
+				finance.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmFinance);
+		
+		JMenu mnExit = new JMenu("Exit");
+		menuBar.add(mnExit);
+		
+		JMenuItem mntmLogOut = new JMenuItem("Log Out");
+		mntmLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		mnExit.add(mntmLogOut);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame frame = new JFrame();
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Hotel Description", 
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		mnExit.add(mntmExit);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 192, 203));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(250, 128, 114)));
@@ -187,6 +256,7 @@ public class EmployeeManagement extends JFrame {
 		panelInput.add(lblPerMonth);
 		
 		JRadioButton rdbtnMale = new JRadioButton("Male");
+		rdbtnMale.setSelected(true);
 		rdbtnMale.setActionCommand("Male");
 		buttonGroupGender.add(rdbtnMale);
 		rdbtnMale.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
@@ -206,7 +276,7 @@ public class EmployeeManagement extends JFrame {
 		panelButton.setLayout(null);
 		panelButton.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(250, 128, 114)));
 		panelButton.setBackground(new Color(255, 228, 225));
-		panelButton.setBounds(15, 520, 942, 87);
+		panelButton.setBounds(15, 520, 942, 62);
 		contentPane.add(panelButton);
 		
 		JButton buttonAddRecord = new JButton("Add Record");
@@ -237,7 +307,7 @@ public class EmployeeManagement extends JFrame {
 		});
 		buttonAddRecord.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		buttonAddRecord.setBackground(new Color(255, 192, 203));
-		buttonAddRecord.setBounds(15, 16, 196, 55);
+		buttonAddRecord.setBounds(15, 12, 196, 39);
 		panelButton.add(buttonAddRecord);
 		
 		JButton buttonReset = new JButton("Reset");
@@ -256,7 +326,7 @@ public class EmployeeManagement extends JFrame {
 		});
 		buttonReset.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		buttonReset.setBackground(new Color(255, 192, 203));
-		buttonReset.setBounds(226, 16, 127, 55);
+		buttonReset.setBounds(266, 12, 127, 39);
 		panelButton.add(buttonReset);
 		
 		JButton buttonUpdate = new JButton("Update");
@@ -286,7 +356,7 @@ public class EmployeeManagement extends JFrame {
 		});
 		buttonUpdate.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		buttonUpdate.setBackground(new Color(255, 192, 203));
-		buttonUpdate.setBounds(368, 16, 127, 55);
+		buttonUpdate.setBounds(449, 12, 127, 39);
 		panelButton.add(buttonUpdate);
 		
 		JButton buttonDelete = new JButton("Delete");
@@ -308,23 +378,8 @@ public class EmployeeManagement extends JFrame {
 		});
 		buttonDelete.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		buttonDelete.setBackground(new Color(255, 192, 203));
-		buttonDelete.setBounds(510, 16, 127, 55);
+		buttonDelete.setBounds(623, 12, 127, 39);
 		panelButton.add(buttonDelete);
-		
-		JButton buttonExit = new JButton("Exit");
-		buttonExit.setBounds(800, 16, 127, 55);
-		panelButton.add(buttonExit);
-		buttonExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JFrame frame = new JFrame();
-				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Employee Management", 
-						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
-					System.exit(0);
-				}
-			}
-		});
-		buttonExit.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
-		buttonExit.setBackground(new Color(255, 192, 203));
 		
 		JButton buttonPrint = new JButton("Print");
 		buttonPrint.addActionListener(new ActionListener() {
@@ -336,7 +391,7 @@ public class EmployeeManagement extends JFrame {
 				}
 			}
 		});
-		buttonPrint.setBounds(652, 16, 127, 55);
+		buttonPrint.setBounds(800, 12, 127, 39);
 		panelButton.add(buttonPrint);
 		buttonPrint.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		buttonPrint.setBackground(new Color(255, 192, 203));
@@ -392,5 +447,42 @@ public class EmployeeManagement extends JFrame {
 			}
 		));
 		scrollPane.setViewportView(tableEmployee);
+	
+		tableEmployee.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DefaultTableModel model = (DefaultTableModel)tableEmployee.getModel();
+				int i = tableEmployee.getSelectedRow();
+				
+				textFieldName.setText(model.getValueAt(i, 0).toString());
+				textFieldAge.setText(model.getValueAt(i, 1).toString());
+				
+				String tableGender = model.getValueAt(i, 2).toString();
+				if (tableGender.equals("Male")) {
+					rdbtnMale.setSelected(true);
+				}
+				else if(tableGender.equals("Female")) {
+					rdbtnFemale.setSelected(true);
+				}
+				
+				textFieldHPNo.setText(model.getValueAt(i, 3).toString());
+				textFieldEmail.setText(model.getValueAt(i, 4).toString());
+				textFieldAddress.setText(model.getValueAt(i, 5).toString());
+				textFieldPosition.setText(model.getValueAt(i, 6).toString());
+				
+				String tableContract = model.getValueAt(i, 7).toString();
+				if (tableContract.equals("1 year")) {
+					comboBoxContract.setSelectedIndex(1);
+				}
+				else if (tableContract.equals("2 years")) {
+					comboBoxContract.setSelectedIndex(2);
+				}
+				else if (tableContract.equals("5 years")) {
+					comboBoxContract.setSelectedIndex(3);
+				}
+				
+				textFieldSalary.setText(model.getValueAt(i, 8).toString());
+			}
+		});
 	}
 }

@@ -11,6 +11,13 @@ import javax.swing.border.MatteBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CompanyBackground extends JFrame {
 
@@ -37,7 +44,68 @@ public class CompanyBackground extends JFrame {
 	 */
 	public CompanyBackground() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 948, 671);
+		setBounds(100, 100, 948, 649);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnHome = new JMenu("Home");
+		menuBar.add(mnHome);
+		
+		JMenuItem mntmRegistration = new JMenuItem("Registration");
+		mntmRegistration.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerRegistration cusreg = new CustomerRegistration();
+				cusreg.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmRegistration);
+		
+		JMenuItem mntmHotelDescription = new JMenuItem("Hotel Description");
+		mntmHotelDescription.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HotelDescription hoteldes = new HotelDescription();
+				hoteldes.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmHotelDescription);
+		
+		JMenuItem mntmPlaceOrder = new JMenuItem("Place Order");
+		mntmPlaceOrder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sales sales = new Sales();
+				sales.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmPlaceOrder);
+		
+		JMenu mnExit = new JMenu("Exit");
+		menuBar.add(mnExit);
+		
+		JMenuItem mntmLogOut = new JMenuItem("Log Out");
+		mntmLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		mnExit.add(mntmLogOut);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame frame = new JFrame();
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Order Details", 
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		mnExit.add(mntmExit);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(70, 130, 180)));
@@ -47,7 +115,7 @@ public class CompanyBackground extends JFrame {
 		JPanel panelCompanyBackground = new JPanel();
 		panelCompanyBackground.setBackground(new Color(240, 255, 255));
 		panelCompanyBackground.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(70, 130, 180)));
-		panelCompanyBackground.setBounds(35, 43, 856, 104);
+		panelCompanyBackground.setBounds(36, 16, 856, 104);
 		contentPane.add(panelCompanyBackground);
 		panelCompanyBackground.setLayout(null);
 		
@@ -60,7 +128,7 @@ public class CompanyBackground extends JFrame {
 		JPanel panelCompanyDetails = new JPanel();
 		panelCompanyDetails.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(70, 130, 180)));
 		panelCompanyDetails.setBackground(new Color(240, 255, 255));
-		panelCompanyDetails.setBounds(35, 163, 415, 416);
+		panelCompanyDetails.setBounds(36, 136, 415, 416);
 		contentPane.add(panelCompanyDetails);
 		panelCompanyDetails.setLayout(null);
 		
@@ -124,7 +192,7 @@ public class CompanyBackground extends JFrame {
 		PanelContactUs.setLayout(null);
 		PanelContactUs.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(70, 130, 180)));
 		PanelContactUs.setBackground(new Color(240, 255, 255));
-		PanelContactUs.setBounds(476, 163, 415, 416);
+		PanelContactUs.setBounds(477, 136, 415, 416);
 		contentPane.add(PanelContactUs);
 		
 		JPanel panelContactUs1 = new JPanel();

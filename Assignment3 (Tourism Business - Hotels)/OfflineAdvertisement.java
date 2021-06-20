@@ -12,6 +12,13 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class OfflineAdvertisement extends JFrame {
 
@@ -39,6 +46,70 @@ public class OfflineAdvertisement extends JFrame {
 	public OfflineAdvertisement() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 950, 671);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnHome = new JMenu("Home");
+		menuBar.add(mnHome);
+		
+		JMenuItem mntmEmployeeManagement = new JMenuItem("Employee Management");
+		mntmEmployeeManagement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EmployeeManagement employee = new EmployeeManagement();
+				employee.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmEmployeeManagement);
+		
+		JMenu mnAdvertisement = new JMenu("Advertisement");
+		mnHome.add(mnAdvertisement);
+		
+		JMenuItem mntmOnlineAdvertisement = new JMenuItem("Online Advertisement");
+		mntmOnlineAdvertisement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OnlineAdvertisement onlineAds = new OnlineAdvertisement();
+				onlineAds.setVisible(true);
+				dispose();
+			}
+		});
+		mnAdvertisement.add(mntmOnlineAdvertisement);
+		
+		JMenuItem mntmFinance = new JMenuItem("Finance");
+		mntmFinance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Finance finance = new Finance();
+				finance.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmFinance);
+		
+		JMenu mnExit = new JMenu("Exit");
+		menuBar.add(mnExit);
+		
+		JMenuItem mntmLogOut = new JMenuItem("Log Out");
+		mntmLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		mnExit.add(mntmLogOut);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame frame = new JFrame();
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Hotel Description", 
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		mnExit.add(mntmExit);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 153));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 204, 102)));
@@ -49,7 +120,7 @@ public class OfflineAdvertisement extends JFrame {
 		panelAdsNMarketing.setLayout(null);
 		panelAdsNMarketing.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 204, 102)));
 		panelAdsNMarketing.setBackground(new Color(255, 255, 204));
-		panelAdsNMarketing.setBounds(15, 16, 898, 70);
+		panelAdsNMarketing.setBounds(15, 10, 898, 70);
 		contentPane.add(panelAdsNMarketing);
 		
 		JLabel label = new JLabel("Advertisement & Marketing");
@@ -62,7 +133,7 @@ public class OfflineAdvertisement extends JFrame {
 		panelOfflineAds.setLayout(null);
 		panelOfflineAds.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 204, 102)));
 		panelOfflineAds.setBackground(new Color(255, 255, 204));
-		panelOfflineAds.setBounds(15, 95, 898, 509);
+		panelOfflineAds.setBounds(15, 85, 898, 509);
 		contentPane.add(panelOfflineAds);
 		
 		JPanel panelOfflineAds1 = new JPanel();

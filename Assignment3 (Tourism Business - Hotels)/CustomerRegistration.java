@@ -20,12 +20,18 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class CustomerRegistration extends JFrame {
 
@@ -58,7 +64,68 @@ public class CustomerRegistration extends JFrame {
 	 */
 	public CustomerRegistration() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 960, 671);
+		setBounds(100, 100, 960, 655);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnHome = new JMenu("Home");
+		menuBar.add(mnHome);
+		
+		JMenuItem mntmHotelDescription = new JMenuItem("Hotel Description");
+		mntmHotelDescription.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HotelDescription hoteldes = new HotelDescription();
+				hoteldes.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmHotelDescription);
+		
+		JMenuItem mntmPlaceOrder = new JMenuItem("Place Order");
+		mntmPlaceOrder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sales sales = new Sales();
+				sales.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmPlaceOrder);
+		
+		JMenuItem mntmAboutUs = new JMenuItem("About Us");
+		mntmAboutUs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CompanyBackground bgr = new CompanyBackground();
+				bgr.setVisible(true);
+				dispose();
+			}
+		});
+		mnHome.add(mntmAboutUs);
+		
+		JMenu mnMenu = new JMenu("Exit");
+		menuBar.add(mnMenu);
+		
+		JMenuItem mntmLogOut = new JMenuItem("Log Out");
+		mntmLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		mnMenu.add(mntmLogOut);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame frame = new JFrame();
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Customer Registration", 
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		mnMenu.add(mntmExit);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 228, 196));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 182, 193)));
@@ -187,6 +254,7 @@ public class CustomerRegistration extends JFrame {
 		panelInput.add(textFieldEmail);
 		
 		JRadioButton rdbtnMale = new JRadioButton("Male");
+		rdbtnMale.setSelected(true);
 		rdbtnMale.setActionCommand("Male");
 		buttonGroupGender.add(rdbtnMale);
 		rdbtnMale.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
@@ -203,7 +271,7 @@ public class CustomerRegistration extends JFrame {
 		JPanel panelButton = new JPanel();
 		panelButton.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 192, 203)));
 		panelButton.setBackground(new Color(250, 250, 210));
-		panelButton.setBounds(15, 520, 908, 87);
+		panelButton.setBounds(15, 508, 908, 70);
 		contentPane.add(panelButton);
 		panelButton.setLayout(null);
 		
@@ -231,7 +299,7 @@ public class CustomerRegistration extends JFrame {
 		});
 		btnAddRecord.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnAddRecord.setBackground(new Color(255, 192, 203));
-		btnAddRecord.setBounds(27, 16, 196, 55);
+		btnAddRecord.setBounds(15, 16, 196, 39);
 		panelButton.add(btnAddRecord);
 		
 		JButton btnReset = new JButton("Reset");
@@ -246,10 +314,31 @@ public class CustomerRegistration extends JFrame {
 		});
 		btnReset.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnReset.setBackground(new Color(255, 192, 203));
-		btnReset.setBounds(238, 16, 111, 55);
+		btnReset.setBounds(266, 16, 111, 39);
 		panelButton.add(btnReset);
 		
 		JButton btnUpdate = new JButton("Update");
+		tableCustomer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DefaultTableModel model = (DefaultTableModel)tableCustomer.getModel();
+				int i = tableCustomer.getSelectedRow();
+				
+				textFieldName.setText(model.getValueAt(i, 0).toString());
+				textFieldAge.setText(model.getValueAt(i, 1).toString());
+				
+				String tableGender = model.getValueAt(i, 2).toString();
+				if (tableGender.equals("Male")) {
+					rdbtnMale.setSelected(true);
+				}
+				else if(tableGender.equals("Female")) {
+					rdbtnFemale.setSelected(true);
+				}
+				
+				textFieldHPNo.setText(model.getValueAt(i, 3).toString());
+				textFieldEmail.setText(model.getValueAt(i, 4).toString());
+			}
+		});
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model = (DefaultTableModel)tableCustomer.getModel();
@@ -272,7 +361,7 @@ public class CustomerRegistration extends JFrame {
 		});
 		btnUpdate.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnUpdate.setBackground(new Color(255, 192, 203));
-		btnUpdate.setBounds(364, 16, 127, 55);
+		btnUpdate.setBounds(426, 16, 127, 39);
 		panelButton.add(btnUpdate);
 		
 		JButton btnDelete = new JButton("Delete");
@@ -294,7 +383,7 @@ public class CustomerRegistration extends JFrame {
 		});
 		btnDelete.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnDelete.setBackground(new Color(255, 192, 203));
-		btnDelete.setBounds(506, 16, 127, 55);
+		btnDelete.setBounds(603, 16, 127, 39);
 		panelButton.add(btnDelete);
 		
 		JButton btnPrint = new JButton("Print");
@@ -309,22 +398,7 @@ public class CustomerRegistration extends JFrame {
 		});
 		btnPrint.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnPrint.setBackground(new Color(255, 192, 203));
-		btnPrint.setBounds(648, 16, 111, 55);
+		btnPrint.setBounds(782, 16, 111, 39);
 		panelButton.add(btnPrint);
-		
-		JButton btnExit = new JButton("Exit");
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFrame frame = new JFrame();
-				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Customer Registration", 
-						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
-					System.exit(0);
-				}
-			}
-		});
-		btnExit.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
-		btnExit.setBackground(new Color(255, 192, 203));
-		btnExit.setBounds(774, 16, 102, 55);
-		panelButton.add(btnExit);
 	}
 }
