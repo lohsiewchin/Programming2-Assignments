@@ -20,6 +20,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import java.awt.Toolkit;
 
 public class AdvertisementNMarketing extends JFrame {
 
@@ -45,6 +46,7 @@ public class AdvertisementNMarketing extends JFrame {
 	 * Create the frame.
 	 */
 	public AdvertisementNMarketing() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\User\\Pictures\\\u5B66\u4E60\\Programming 2\\Assignments\\Assignment 3\\icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 948, 658);
 		
@@ -91,7 +93,7 @@ public class AdvertisementNMarketing extends JFrame {
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame frame = new JFrame();
-				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Hotel Description", 
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Just Go Travel Hotel Booking System", 
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 					System.exit(0);
 				}

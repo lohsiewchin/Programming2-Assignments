@@ -31,6 +31,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.Toolkit;
 
 public class EmployeeManagement extends JFrame {
 
@@ -65,6 +66,7 @@ public class EmployeeManagement extends JFrame {
 	 * Create the frame.
 	 */
 	public EmployeeManagement() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\User\\Pictures\\\u5B66\u4E60\\Programming 2\\Assignments\\Assignment 3\\icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 994, 659);
 		
@@ -124,7 +126,7 @@ public class EmployeeManagement extends JFrame {
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame frame = new JFrame();
-				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Hotel Description", 
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Just Go Travel Hotel Booking System", 
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 					System.exit(0);
 				}

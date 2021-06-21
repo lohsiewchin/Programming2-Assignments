@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.Toolkit;
 
 public class Finance extends JFrame {
 
@@ -53,6 +54,7 @@ public class Finance extends JFrame {
 	 * Create the frame.
 	 */
 	public Finance() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\User\\Pictures\\\u5B66\u4E60\\Programming 2\\Assignments\\Assignment 3\\icon.png"));
 		setBackground(new Color(240, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 948, 661);
@@ -113,7 +115,7 @@ public class Finance extends JFrame {
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame frame = new JFrame();
-				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Hotel Description", 
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Just Go Travel Hotel Booking System", 
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 					System.exit(0);
 				}

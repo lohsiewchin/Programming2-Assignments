@@ -19,6 +19,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
+import java.awt.Toolkit;
 
 public class UserHomePage extends JFrame {
 
@@ -44,8 +45,9 @@ public class UserHomePage extends JFrame {
 	 * Create the frame.
 	 */
 	public UserHomePage() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\User\\Pictures\\\u5B66\u4E60\\Programming 2\\Assignments\\Assignment 3\\icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 948, 528);
+		setBounds(100, 100, 833, 468);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -67,7 +69,7 @@ public class UserHomePage extends JFrame {
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame frame = new JFrame();
-				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Hotel Description", 
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Just Go Travel Hotel Booking System", 
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 					System.exit(0);
 				}
@@ -83,21 +85,21 @@ public class UserHomePage extends JFrame {
 		JPanel panelHomePage = new JPanel();
 		panelHomePage.setBackground(new Color(250, 235, 215));
 		panelHomePage.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 192, 203)));
-		panelHomePage.setBounds(35, 16, 856, 104);
+		panelHomePage.setBounds(15, 16, 781, 93);
 		contentPane.add(panelHomePage);
 		panelHomePage.setLayout(null);
 		
 		JLabel lblHomePage = new JLabel("Home Page");
 		lblHomePage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHomePage.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 80));
-		lblHomePage.setBounds(15, 16, 826, 72);
+		lblHomePage.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 60));
+		lblHomePage.setBounds(15, 16, 751, 61);
 		panelHomePage.add(lblHomePage);
 		
 		JPanel panelSelection = new JPanel();
 		panelSelection.setLayout(null);
 		panelSelection.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 192, 203)));
 		panelSelection.setBackground(new Color(250, 235, 215));
-		panelSelection.setBounds(35, 125, 856, 300);
+		panelSelection.setBounds(15, 117, 781, 264);
 		contentPane.add(panelSelection);
 		
 		JButton btnRegister = new JButton("Register");
@@ -111,7 +113,7 @@ public class UserHomePage extends JFrame {
 	            dispose();
 			}
 		});
-		btnRegister.setBounds(84, 60, 282, 81);
+		btnRegister.setBounds(84, 60, 282, 54);
 		panelSelection.add(btnRegister);
 		
 		JButton btnHotelDescription = new JButton("Hotel Description");
@@ -125,7 +127,7 @@ public class UserHomePage extends JFrame {
 		});
 		btnHotelDescription.setBackground(new Color(255, 192, 203));
 		btnHotelDescription.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
-		btnHotelDescription.setBounds(483, 60, 282, 81);
+		btnHotelDescription.setBounds(419, 60, 282, 54);
 		panelSelection.add(btnHotelDescription);
 		
 		JButton btnPlaceOrder = new JButton("Place Order");
@@ -139,7 +141,7 @@ public class UserHomePage extends JFrame {
 		});
 		btnPlaceOrder.setBackground(new Color(255, 192, 203));
 		btnPlaceOrder.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
-		btnPlaceOrder.setBounds(84, 157, 282, 80);
+		btnPlaceOrder.setBounds(84, 157, 282, 54);
 		panelSelection.add(btnPlaceOrder);
 		
 		JButton btnAboutUs = new JButton("About Us");
@@ -153,7 +155,7 @@ public class UserHomePage extends JFrame {
 		});
 		btnAboutUs.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnAboutUs.setBackground(new Color(255, 192, 203));
-		btnAboutUs.setBounds(483, 157, 282, 80);
+		btnAboutUs.setBounds(419, 157, 282, 54);
 		panelSelection.add(btnAboutUs);
 	}
 }

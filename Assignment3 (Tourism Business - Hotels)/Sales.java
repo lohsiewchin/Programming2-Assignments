@@ -33,6 +33,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.Toolkit;
 
 public class Sales extends JFrame {
 
@@ -67,6 +68,7 @@ public class Sales extends JFrame {
 	 * Create the frame.
 	 */
 	public Sales() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\User\\Pictures\\\u5B66\u4E60\\Programming 2\\Assignments\\Assignment 3\\icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1107, 673);
 		
@@ -123,7 +125,7 @@ public class Sales extends JFrame {
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame frame = new JFrame();
-				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Order Details", 
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Just Go Travel Hotel Booking System", 
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 					System.exit(0);
 				}
@@ -145,7 +147,7 @@ public class Sales extends JFrame {
 		
 		JLabel lblOrderDetails = new JLabel("Order Details");
 		lblOrderDetails.setHorizontalAlignment(SwingConstants.CENTER);
-		lblOrderDetails.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 90));
+		lblOrderDetails.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 70));
 		lblOrderDetails.setBounds(15, 0, 1032, 87);
 		panelOrderDetails.add(lblOrderDetails);
 		
