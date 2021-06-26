@@ -38,6 +38,7 @@ import java.awt.Toolkit;
 public class Sales extends JFrame {
 
 	private JPanel contentPane;
+	static double totalSales;
 	private JTextField textFieldDuration;
 	private JTextField textFieldTotalPrice;
 	private JTextField textFieldDiscount;
@@ -172,12 +173,21 @@ public class Sales extends JFrame {
 					for (int i=0; i<tableSales.getRowCount(); i++) {
 						for (int j=0; j<tableSales.getColumnCount(); j++) {
 							bw.write(tableSales.getModel().getValueAt(i, j) + "  |  ");
-							}
-						bw.write("\n______________________________________________________________________________________________________________________\n");
 						}
-						bw.close();
-						fw.close();
-						JOptionPane.showMessageDialog(null, "Data Uploaded");
+						bw.write("\n______________________________________________________________________________________________________________________\n");
+					}
+					bw.close();
+					fw.close();
+					JOptionPane.showMessageDialog(null, "Data Uploaded");
+					
+					DefaultTableModel model = (DefaultTableModel) tableSales.getModel();
+					totalSales=0;
+					
+					for(int i=0; i<model.getRowCount(); i++) {
+						double sales = Double.parseDouble(model.getValueAt(i, 8).toString());
+						totalSales=sales+totalSales;
+					}
+						
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -185,7 +195,7 @@ public class Sales extends JFrame {
 		});
 		buttonUpload.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		buttonUpload.setBackground(new Color(255, 192, 203));
-		buttonUpload.setBounds(233, 344, 127, 47);
+		buttonUpload.setBounds(230, 356, 127, 47);
 		panelTable.add(buttonUpload);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -262,29 +272,29 @@ public class Sales extends JFrame {
 		
 		comboBoxHotel.addActionListener (new ActionListener () {
 		    public void actionPerformed(ActionEvent e) {
-		    	final DefaultComboBoxModel ImpianaRooms = new DefaultComboBoxModel(new String[]{"Please Select", "Deluxe rooms", "Executive rooms", "Standard rooms", "Suites"});
-		    	final DefaultComboBoxModel LegolandRooms = new DefaultComboBoxModel(new String[]{"Please Select", "Deluxe rooms", "Standard rooms"});
-		    	final DefaultComboBoxModel ENORooms = new DefaultComboBoxModel(new String[]{"Please Select", "Comfort rooms", "Deluxe rooms", "Standard rooms", "Studio rooms", "Suites"});
-		    	final DefaultComboBoxModel BayviewRooms = new DefaultComboBoxModel(new String[]{"Please Select", "Comfort rooms", "Deluxe rooms", "Family rooms", "Standard rooms", "Suites"});
-		    	final DefaultComboBoxModel DHotelRooms = new DefaultComboBoxModel(new String[]{"Please Select", "Comfort rooms", "Standard rooms"});
-		    	final DefaultComboBoxModel PangkorRooms = new DefaultComboBoxModel(new String[]{"Please Select", "Standard rooms", "Villas"});
+		    	final DefaultComboBoxModel ImpianaRooms = new DefaultComboBoxModel(new String[]{"Please Select", "(IHS)Deluxe rooms", "(IHS)Executive rooms", "(IHS)Standard rooms", "(IHS)Suites"});
+		    	final DefaultComboBoxModel LegolandRooms = new DefaultComboBoxModel(new String[]{"Please Select", "(HLM)Deluxe rooms", "(HLM)Standard rooms"});
+		    	final DefaultComboBoxModel ENORooms = new DefaultComboBoxModel(new String[]{"Please Select", "(ENO)Comfort rooms", "(ENO)Deluxe rooms", "(ENO)Standard rooms", "(ENO)Studio rooms", "(ENO)Suites"});
+		    	final DefaultComboBoxModel BayviewRooms = new DefaultComboBoxModel(new String[]{"Please Select", "(BH)Comfort rooms", "(BH)Deluxe rooms", "(BH)Family rooms", "(BH)Standard rooms", "(BH)Suites"});
+		    	final DefaultComboBoxModel DHotelRooms = new DefaultComboBoxModel(new String[]{"Please Select", "(DH)Comfort rooms", "(DH)Standard rooms"});
+		    	final DefaultComboBoxModel PangkorRooms = new DefaultComboBoxModel(new String[]{"Please Select", "(PLR)Standard rooms", "(PLR)Villas"});
 		    	
 		        if (comboBoxHotel.getSelectedItem().equals("Impiana Hotel Senai")){
 		            comboBoxTypeOfRoom.setModel(ImpianaRooms);
 		            
 		            comboBoxTypeOfRoom.addActionListener (new ActionListener () {
 		    		    public void actionPerformed(ActionEvent e) {
-		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("Deluxe rooms")) {
-		    		    		textFieldPrice.setText("199");
+		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("(IHS)Deluxe rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", JohorSetPrice.deluxeIHS));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Executive rooms")) {
-		    		    		textFieldPrice.setText("395");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(IHS)Executive rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", JohorSetPrice.executiveIHS));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Standard rooms")) {
-		    		    		textFieldPrice.setText("147");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(IHS)Standard rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", JohorSetPrice.standardIHS));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Suites")) {
-		    		    		textFieldPrice.setText("650");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(IHS)Suites")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", JohorSetPrice.suitesIHS));
 		    		    	}
 
 		    		    }
@@ -295,11 +305,11 @@ public class Sales extends JFrame {
 		        	
 		        	comboBoxTypeOfRoom.addActionListener (new ActionListener () {
 		    		    public void actionPerformed(ActionEvent e) {
-		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("Deluxe rooms")) {
-		    		    		textFieldPrice.setText("792");
+		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("(HLM)Deluxe rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", JohorSetPrice.deluxeHLM));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Standard rooms")) {
-		    		    		textFieldPrice.setText("548");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(HLM)Standard rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", JohorSetPrice.standardHLM));
 		    		    	}
 
 		    		    }
@@ -310,20 +320,20 @@ public class Sales extends JFrame {
 		        	
 		        	comboBoxTypeOfRoom.addActionListener (new ActionListener () {
 		    		    public void actionPerformed(ActionEvent e) {
-		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("Comfort rooms")) {
-		    		    		textFieldPrice.setText("508");
+		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("(ENO)Comfort rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.comfortENO));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Deluxe rooms")) {
-		    		    		textFieldPrice.setText("611");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(ENO)Deluxe rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.deluxeENO));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Standard rooms")) {
-		    		    		textFieldPrice.setText("420");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(ENO)Standard rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.standardENO));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Studio rooms")) {
-		    		    		textFieldPrice.setText("748");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(ENO)Studio rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.studioENO));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Suites")) {
-		    		    		textFieldPrice.setText("899");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(ENO)Suites")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.suitesENO));
 		    		    	}
 		    		    }
 		    		});
@@ -333,20 +343,20 @@ public class Sales extends JFrame {
 		        	
 		        	comboBoxTypeOfRoom.addActionListener (new ActionListener () {
 		    		    public void actionPerformed(ActionEvent e) {
-		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("Comfort rooms")) {
-		    		    		textFieldPrice.setText("133");
+		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("(BH)Comfort rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.comfortBayview));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Deluxe rooms")) {
-		    		    		textFieldPrice.setText("142");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(BH)Deluxe rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.deluxeBayview));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Family rooms")) {
-		    		    		textFieldPrice.setText("356");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(BH)Family rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.familyBayview));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Standard rooms")) {
-		    		    		textFieldPrice.setText("119");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(BH)Standard rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.standardBayview));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Suites")) {
-		    		    		textFieldPrice.setText("297");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(BH)Suites")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PenangSetPrice.suitesBayview));
 		    		    	}
 		    		    }
 		    		});
@@ -356,11 +366,11 @@ public class Sales extends JFrame {
 		        	
 		        	comboBoxTypeOfRoom.addActionListener (new ActionListener () {
 		    		    public void actionPerformed(ActionEvent e) {
-		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("Comfort rooms")) {
-		    		    		textFieldPrice.setText("205");
+		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("(DH)Comfort rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PerakSetPrice.comfortDH));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Standard rooms")) {
-		    		    		textFieldPrice.setText("160");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(DH)Standard rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PerakSetPrice.standardDH));
 		    		    	}
 
 		    		    }
@@ -371,11 +381,11 @@ public class Sales extends JFrame {
 		        	
 		        	comboBoxTypeOfRoom.addActionListener (new ActionListener () {
 		    		    public void actionPerformed(ActionEvent e) {
-		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("Standard rooms")) {
-		    		    		textFieldPrice.setText("891");
+		    		    	if (comboBoxTypeOfRoom.getSelectedItem().equals("(PLR)Standard rooms")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PerakSetPrice.standardPangkor));
 		    		    	}
-		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("Villas")) {
-		    		    		textFieldPrice.setText("1080");
+		    		    	else if (comboBoxTypeOfRoom.getSelectedItem().equals("(PLR)Villas")) {
+		    		    		textFieldPrice.setText(String.format("%.2f", PerakSetPrice.villasPangkor));
 		    		    	}
 
 		    		    }
@@ -391,6 +401,7 @@ public class Sales extends JFrame {
 		lblPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		textFieldPrice = new JTextField();
+		textFieldPrice.setEditable(false);
 		textFieldPrice.setBounds(192, 130, 156, 30);
 		panelInput.add(textFieldPrice);
 		textFieldPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
@@ -410,12 +421,12 @@ public class Sales extends JFrame {
 		textFieldDuration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					try {
-						int price = Integer.parseInt(textFieldPrice.getText());
+						double price = Double.parseDouble(textFieldPrice.getText());
 						int qty = Integer.parseInt(textFieldQuantity.getText());
 						int duration = Integer.parseInt(textFieldDuration.getText());
 						
-						int totalPrice = price*qty*duration;
-						textFieldTotalPrice.setText(Integer.toString(totalPrice));
+						double totalPrice = price*qty*duration;
+						textFieldTotalPrice.setText(Double.toString(totalPrice));
 						
 						if (totalPrice>3000) {
 							textFieldDiscount.setText("10%");
@@ -424,7 +435,7 @@ public class Sales extends JFrame {
 						}
 						else {
 							textFieldDiscount.setText("N/A");
-							textFieldFinalPrice.setText(Integer.toString(totalPrice));
+							textFieldFinalPrice.setText(String.format("%.2f", totalPrice));
 						}
 						
 					} catch (Exception e1) {
@@ -443,12 +454,14 @@ public class Sales extends JFrame {
 		lblNights.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		textFieldTotalPrice = new JTextField();
+		textFieldTotalPrice.setEditable(false);
 		textFieldTotalPrice.setBounds(193, 244, 267, 30);
 		panelInput.add(textFieldTotalPrice);
 		textFieldTotalPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		textFieldTotalPrice.setColumns(10);
 		
 		textFieldDiscount = new JTextField();
+		textFieldDiscount.setEditable(false);
 		textFieldDiscount.setBounds(192, 282, 268, 30);
 		panelInput.add(textFieldDiscount);
 		textFieldDiscount.setFont(new Font("Lucida Bright", Font.BOLD, 20));
@@ -470,6 +483,7 @@ public class Sales extends JFrame {
 		lblTotalPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		
 		textFieldFinalPrice = new JTextField();
+		textFieldFinalPrice.setEditable(false);
 		textFieldFinalPrice.setFont(new Font("Lucida Bright", Font.BOLD, 20));
 		textFieldFinalPrice.setColumns(10);
 		textFieldFinalPrice.setBounds(192, 320, 268, 30);
@@ -538,7 +552,7 @@ public class Sales extends JFrame {
 				
 				if (tableSales.getSelectedRow() == -1) {
 					if (tableSales.getRowCount() == 0) {
-						JOptionPane.showMessageDialog(null, "Register Successful", "Employee Management",
+						JOptionPane.showMessageDialog(null, "Order added", "Sales",
 								JOptionPane.OK_OPTION);
 					}
 				}
@@ -608,29 +622,65 @@ public class Sales extends JFrame {
 				}
 				
 				String tableTypeOfRooms = model.getValueAt(i, 2).toString();
-				if (tableTypeOfRooms.equals("Deluxe rooms")) {
-					comboBoxTypeOfRoom.setSelectedItem("Deluxe rooms");
+				if (tableTypeOfRooms.equals("(IHS)Deluxe rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(IHS)Deluxe rooms");
 				}
-				else if (tableTypeOfRooms.equals("Executive rooms")) {
-					comboBoxTypeOfRoom.setSelectedItem("Executive rooms");
+				else if (tableTypeOfRooms.equals("(IHS)Executive rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(IHS)Executive rooms");
 				}
-				else if (tableTypeOfRooms.equals("Standard rooms")) {
-					comboBoxTypeOfRoom.setSelectedItem("Standard rooms");
+				else if (tableTypeOfRooms.equals("(IHS)Standard rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(IHS)Standard rooms");
 				}
-				else if (tableTypeOfRooms.equals("Suites")) {
-					comboBoxTypeOfRoom.setSelectedItem("Suites");
+				else if (tableTypeOfRooms.equals("(IHS)Suites")) {
+					comboBoxTypeOfRoom.setSelectedItem("(IHS)Suites");
 				}
-				else if (tableTypeOfRooms.equals("Comfort rooms")) {
-					comboBoxTypeOfRoom.setSelectedItem("Comfort rooms");
+				else if (tableTypeOfRooms.equals("(HLM)Deluxe rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(HLM)Deluxe rooms");
 				}
-				else if (tableTypeOfRooms.equals("Studio rooms")) {
-					comboBoxTypeOfRoom.setSelectedItem("Studio rooms");
+				else if (tableTypeOfRooms.equals("(HLM)Standard rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(HLM)Standard rooms");
 				}
-				else if (tableTypeOfRooms.equals("Family rooms")) {
-					comboBoxTypeOfRoom.setSelectedItem("Family rooms");
+				else if (tableTypeOfRooms.equals("(ENO)Comfort rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(ENO)Comfort rooms");
 				}
-				else if (tableTypeOfRooms.equals("Villas")) {
-					comboBoxTypeOfRoom.setSelectedItem("Villas");
+				else if (tableTypeOfRooms.equals("(ENO)Deluxe rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(ENO)Deluxe rooms");
+				}
+				else if (tableTypeOfRooms.equals("(ENO)Standard rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(ENO)Standard rooms");
+				}
+				else if (tableTypeOfRooms.equals("(ENO)Studio rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(ENO)Studio rooms");
+				}
+				else if (tableTypeOfRooms.equals("(ENO)Suites rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(ENO)Suites rooms");
+				}
+				else if (tableTypeOfRooms.equals("(BH)Comfort rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(BH)Comfort rooms");
+				}
+				else if (tableTypeOfRooms.equals("(BH)Deluxe rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(BH)Deluxe rooms");
+				}
+				else if (tableTypeOfRooms.equals("(BH)Family rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(BH)Family rooms");
+				}
+				else if (tableTypeOfRooms.equals("(BH)Standard rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(BH)Standard rooms");
+				}
+				else if (tableTypeOfRooms.equals("(BH)Suites rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(BH)Suites rooms");
+				}
+				else if (tableTypeOfRooms.equals("(DH)Comfort rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(DH)Comfort rooms");
+				}
+				else if (tableTypeOfRooms.equals("(DH)Standard rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(DH)Standard rooms");
+				}
+				else if (tableTypeOfRooms.equals("(PLR)Standard rooms")) {
+					comboBoxTypeOfRoom.setSelectedItem("(PLR)Standard rooms");
+				}
+				else if (tableTypeOfRooms.equals("(PLR)Villas")) {
+					comboBoxTypeOfRoom.setSelectedItem("(PLR)Villas");
 				}
 				
 				textFieldPrice.setText(model.getValueAt(i, 3).toString());

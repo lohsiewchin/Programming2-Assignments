@@ -135,7 +135,7 @@ public class Login extends JFrame {
 		});
 		ButtonLogin.setBackground(new Color(255, 192, 203));
 		ButtonLogin.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
-		ButtonLogin.setBounds(144, 235, 167, 37);
+		ButtonLogin.setBounds(152, 235, 140, 37);
 		panelLogin.add(ButtonLogin);
 		
 		JButton ButtonReset = new JButton("Reset");
@@ -148,7 +148,7 @@ public class Login extends JFrame {
 		});
 		ButtonReset.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		ButtonReset.setBackground(new Color(255, 192, 203));
-		ButtonReset.setBounds(358, 235, 167, 37);
+		ButtonReset.setBounds(365, 235, 140, 37);
 		panelLogin.add(ButtonReset);
 		
 		JButton btnExit = new JButton("Exit");

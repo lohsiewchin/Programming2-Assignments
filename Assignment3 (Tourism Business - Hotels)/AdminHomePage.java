@@ -46,7 +46,7 @@ public class AdminHomePage extends JFrame {
 	public AdminHomePage() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\User\\Pictures\\\u5B66\u4E60\\Programming 2\\Assignments\\Assignment 3\\icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 948, 623);
+		setBounds(100, 100, 774, 479);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -84,15 +84,15 @@ public class AdminHomePage extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(240, 255, 255));
 		panel.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(70, 130, 180)));
-		panel.setBounds(35, 29, 856, 104);
+		panel.setBounds(15, 16, 722, 72);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel label = new JLabel("Home Page");
-		label.setBounds(15, 16, 826, 72);
+		label.setBounds(15, 0, 692, 71);
 		panel.add(label);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 80));
+		label.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 60));
 		
 		JButton btnEmployeeManagement = new JButton("Employee Management");
 		btnEmployeeManagement.addActionListener(new ActionListener() {
@@ -105,7 +105,7 @@ public class AdminHomePage extends JFrame {
 		});
 		btnEmployeeManagement.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnEmployeeManagement.setBackground(new Color(135, 206, 250));
-		btnEmployeeManagement.setBounds(265, 186, 418, 81);
+		btnEmployeeManagement.setBounds(175, 104, 418, 55);
 		contentPane.add(btnEmployeeManagement);
 		
 		JButton btnAdvertisementMarketing = new JButton("Advertisement & Marketing");
@@ -119,7 +119,7 @@ public class AdminHomePage extends JFrame {
 		});
 		btnAdvertisementMarketing.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnAdvertisementMarketing.setBackground(new Color(135, 206, 250));
-		btnAdvertisementMarketing.setBounds(265, 309, 418, 81);
+		btnAdvertisementMarketing.setBounds(175, 175, 418, 55);
 		contentPane.add(btnAdvertisementMarketing);
 		
 		JButton btnFinance = new JButton("Finance");
@@ -133,7 +133,21 @@ public class AdminHomePage extends JFrame {
 		});
 		btnFinance.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnFinance.setBackground(new Color(135, 206, 250));
-		btnFinance.setBounds(265, 436, 418, 81);
+		btnFinance.setBounds(175, 314, 418, 55);
 		contentPane.add(btnFinance);
+		
+		JButton btnEditHotelRoomPrice = new JButton("Update Hotels' Rooms Price");
+		btnEditHotelRoomPrice.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				UpdatePrice update = new UpdatePrice();
+				update.setModalExclusionType(null);
+				update.setVisible(true);
+				dispose();
+			}
+		});
+		btnEditHotelRoomPrice.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
+		btnEditHotelRoomPrice.setBackground(new Color(135, 206, 250));
+		btnEditHotelRoomPrice.setBounds(175, 246, 418, 55);
+		contentPane.add(btnEditHotelRoomPrice);
 	}
 }

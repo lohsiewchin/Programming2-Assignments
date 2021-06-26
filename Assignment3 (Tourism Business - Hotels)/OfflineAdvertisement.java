@@ -88,6 +88,42 @@ public class OfflineAdvertisement extends JFrame {
 		});
 		mnHome.add(mntmFinance);
 		
+		JMenu mnUpdateHotelsRooms = new JMenu("Update Hotels' Rooms Price");
+		mnHome.add(mnUpdateHotelsRooms);
+		
+		JMenuItem mntmJohor = new JMenuItem("Johor");
+		mntmJohor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JohorSetPrice johor = new JohorSetPrice();
+				johor.setModalExclusionType(null);
+				johor.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelsRooms.add(mntmJohor);
+		
+		JMenuItem mntmPenang = new JMenuItem("Penang");
+		mntmPenang.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PenangSetPrice penang = new PenangSetPrice();
+				penang.setModalExclusionType(null);
+				penang.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelsRooms.add(mntmPenang);
+		
+		JMenuItem mntmPerak = new JMenuItem("Perak");
+		mntmPerak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PerakSetPrice perak = new PerakSetPrice();
+				perak.setMaximizedBounds(null);
+				perak.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelsRooms.add(mntmPerak);
+		
 		JMenu mnExit = new JMenu("Exit");
 		menuBar.add(mnExit);
 		

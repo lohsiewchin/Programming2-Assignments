@@ -20,19 +20,23 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Finance extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textFieldNetProfit;
-	private JTextField textFieldIncomeHotel;
-	private JTextField textFieldIncomeAds;
-	private JTextField textFieldTotalIncome;
-	private JTextField textFieldMaintainance;
-	private JTextField textFieldAds;
-	private JTextField textFieldTotalExpenditure;
-	private JTextField textFieldWages;
-	private JTextField textFieldMiscellaneous;
+	JPanel contentPane;
+	JTextField textFieldNetProfit;
+	JTextField textFieldIncomeHotel;
+	JTextField textFieldIncomeAds;
+	JTextField textFieldTotalIncome;
+	JTextField textFieldMaintainance;
+	JTextField textFieldAds;
+	JTextField textFieldTotalExpenditure;
+	JTextField textFieldWages;
+	JTextField textFieldMiscellaneous;
+	double salesIncome;
+	double wagesEmployee;
 
 	/**
 	 * Launch the application.
@@ -98,6 +102,42 @@ public class Finance extends JFrame {
 		});
 		mnAdvertisement.add(mntmOfflineAdvertisement);
 		
+		JMenu mnUpdateHotelRooms = new JMenu("Update Hotels' Rooms Price");
+		mnHome.add(mnUpdateHotelRooms);
+		
+		JMenuItem mntmJohor = new JMenuItem("Johor");
+		mntmJohor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JohorSetPrice johor = new JohorSetPrice();
+				johor.setModalExclusionType(null);
+				johor.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelRooms.add(mntmJohor);
+		
+		JMenuItem mntmPenang = new JMenuItem("Penang");
+		mntmPenang.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PenangSetPrice penang = new PenangSetPrice();
+				penang.setModalExclusionType(null);
+				penang.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelRooms.add(mntmPenang);
+		
+		JMenuItem mntmPerak = new JMenuItem("Perak");
+		mntmPerak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PerakSetPrice perak = new PerakSetPrice();
+				perak.setModalExclusionType(null);
+				perak.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelRooms.add(mntmPerak);
+		
 		JMenu mnExit = new JMenu("Exit");
 		menuBar.add(mnExit);
 		
@@ -122,6 +162,7 @@ public class Finance extends JFrame {
 			}
 		});
 		mnExit.add(mntmExit);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 218, 185));
 		contentPane.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 165, 0)));
@@ -180,6 +221,7 @@ public class Finance extends JFrame {
 		panelIncomes.add(lblIncomeAds);
 		
 		textFieldIncomeHotel = new JTextField();
+		textFieldIncomeHotel.setEditable(false);
 		textFieldIncomeHotel.setFont(new Font("Lucida Bright", Font.BOLD, 22));
 		textFieldIncomeHotel.setBounds(15, 43, 306, 26);
 		panelIncomes.add(textFieldIncomeHotel);
@@ -197,6 +239,7 @@ public class Finance extends JFrame {
 		panelIncomes.add(lblTotalIncome_1);
 		
 		textFieldTotalIncome = new JTextField();
+		textFieldTotalIncome.setEditable(false);
 		textFieldTotalIncome.setFont(new Font("Lucida Bright", Font.BOLD, 22));
 		textFieldTotalIncome.setColumns(10);
 		textFieldTotalIncome.setBounds(15, 260, 306, 26);
@@ -258,6 +301,7 @@ public class Finance extends JFrame {
 		panelExpenditures.add(lblTotalExpenditure_1);
 		
 		textFieldTotalExpenditure = new JTextField();
+		textFieldTotalExpenditure.setEditable(false);
 		textFieldTotalExpenditure.setFont(new Font("Lucida Bright", Font.BOLD, 22));
 		textFieldTotalExpenditure.setColumns(10);
 		textFieldTotalExpenditure.setBounds(15, 260, 306, 26);
@@ -269,6 +313,7 @@ public class Finance extends JFrame {
 		panelExpenditures.add(lblWages);
 		
 		textFieldWages = new JTextField();
+		textFieldWages.setEditable(false);
 		textFieldWages.setFont(new Font("Lucida Bright", Font.BOLD, 22));
 		textFieldWages.setColumns(10);
 		textFieldWages.setBounds(15, 150, 306, 26);
@@ -296,29 +341,29 @@ public class Finance extends JFrame {
 		buttonCal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int incomeHotel = Integer.parseInt(textFieldIncomeHotel.getText());
-					int incomeAds = Integer.parseInt(textFieldIncomeAds.getText());
+					double incomeHotel = Double.parseDouble(textFieldIncomeHotel.getText());
+					double incomeAds = Double.parseDouble(textFieldIncomeAds.getText());
 					
-					int totalIncome = incomeHotel+incomeAds;
-					textFieldTotalIncome.setText(Integer.toString(totalIncome));
+					double totalIncome = incomeHotel+incomeAds;
+					textFieldTotalIncome.setText(String.format("%.2f", totalIncome));
 					
-					int maintainance = Integer.parseInt(textFieldMaintainance.getText());
-					int ads = Integer.parseInt(textFieldAds.getText());
-					int wages = Integer.parseInt(textFieldWages.getText());
-					int miscellaneous =Integer.parseInt(textFieldMiscellaneous.getText());
+					double maintainance = Double.parseDouble(textFieldMaintainance.getText());
+					double ads = Double.parseDouble(textFieldAds.getText());
+					double wages = Double.parseDouble(textFieldWages.getText());
+					double miscellaneous =Double.parseDouble(textFieldMiscellaneous.getText());
 					
-					int totalExpenditure = maintainance+ads+wages+miscellaneous;
-					textFieldTotalExpenditure.setText(Integer.toString(totalExpenditure));
+					double totalExpenditure = maintainance+ads+wages+miscellaneous;
+					textFieldTotalExpenditure.setText(String.format("%.2f", totalExpenditure));
 					
-					int NetProfit = totalIncome-totalExpenditure;
-					textFieldNetProfit.setText(Integer.toString(NetProfit));
+					double NetProfit = totalIncome-totalExpenditure;
+					textFieldNetProfit.setText(String.format("%.2f", NetProfit));
 					
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, "Please Enter Valid Number");
 				}
 			}
 		});
-		buttonCal.setBounds(249, 44, 190, 42);
+		buttonCal.setBounds(361, 44, 175, 42);
 		panelnetProfit.add(buttonCal);
 		buttonCal.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		buttonCal.setBackground(new Color(255, 255, 153));
@@ -329,6 +374,7 @@ public class Finance extends JFrame {
 		lblNetProfit.setFont(new Font("Lucida Bright", Font.BOLD, 30));
 		
 		textFieldNetProfit = new JTextField();
+		textFieldNetProfit.setEditable(false);
 		textFieldNetProfit.setFont(new Font("Lucida Bright", Font.BOLD, 30));
 		textFieldNetProfit.setBounds(449, 10, 277, 30);
 		panelnetProfit.add(textFieldNetProfit);
@@ -337,12 +383,10 @@ public class Finance extends JFrame {
 		JButton btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textFieldIncomeHotel.setText("");
 				textFieldIncomeAds.setText("");
 				textFieldTotalIncome.setText("");
 				textFieldMaintainance.setText("");
 				textFieldAds.setText("");
-				textFieldWages.setText("");
 				textFieldMiscellaneous.setText("");
 				textFieldTotalExpenditure.setText("");
 				textFieldNetProfit.setText("");
@@ -350,7 +394,19 @@ public class Finance extends JFrame {
 		});
 		btnReset.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnReset.setBackground(new Color(255, 255, 153));
-		btnReset.setBounds(454, 44, 190, 42);
+		btnReset.setBounds(551, 44, 175, 42);
 		panelnetProfit.add(btnReset);
+		
+		JButton btnShow = new JButton("Show");
+		btnShow.setBounds(171, 44, 175, 42);
+		panelnetProfit.add(btnShow);
+		btnShow.setBackground(new Color(255, 255, 153));
+		btnShow.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textFieldIncomeHotel.setText(String.format("%.2f", Sales.totalSales));
+				textFieldWages.setText(String.format("%.2f", EmployeeManagement.totalSalary));
+			}
+		});
+		btnShow.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 	}
 }

@@ -44,6 +44,7 @@ public class EmployeeManagement extends JFrame {
 	private JTextField textFieldAddress;
 	private JTextField textFieldPosition;
 	private JTextField textFieldSalary;
+	static double totalSalary;
 	private final ButtonGroup buttonGroupGender = new ButtonGroup();
 
 	/**
@@ -108,6 +109,42 @@ public class EmployeeManagement extends JFrame {
 			}
 		});
 		mnHome.add(mntmFinance);
+		
+		JMenu mnUpdateHotelsRooms = new JMenu("Update Hotels' Rooms Price");
+		mnHome.add(mnUpdateHotelsRooms);
+		
+		JMenuItem mntmJohor = new JMenuItem("Johor");
+		mntmJohor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JohorSetPrice johor = new JohorSetPrice();
+				johor.setModalExclusionType(null);
+				johor.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelsRooms.add(mntmJohor);
+		
+		JMenuItem mntmPenang = new JMenuItem("Penang");
+		mntmPenang.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PenangSetPrice penang = new PenangSetPrice();
+				penang.setModalExclusionType(null);
+				penang.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelsRooms.add(mntmPenang);
+		
+		JMenuItem mntmPerak = new JMenuItem("Perak");
+		mntmPerak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PerakSetPrice perak = new PerakSetPrice();
+				perak.setMaximizedBounds(null);
+				perak.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelsRooms.add(mntmPerak);
 		
 		JMenu mnExit = new JMenu("Exit");
 		menuBar.add(mnExit);
@@ -419,12 +456,20 @@ public class EmployeeManagement extends JFrame {
 					for (int i=0; i<tableEmployee.getRowCount(); i++) {
 						for (int j=0; j<tableEmployee.getColumnCount(); j++) {
 							bw.write(tableEmployee.getModel().getValueAt(i, j) + "  |  ");
-							}
-						bw.write("\n________________________________________________________________________________________________________________________________________\n");
 						}
-						bw.close();
-						fw.close();
-						JOptionPane.showMessageDialog(null, "Data Uploaded");
+						bw.write("\n________________________________________________________________________________________________________________________________________\n");
+					}
+					bw.close();
+					fw.close();
+					JOptionPane.showMessageDialog(null, "Data Uploaded");
+					
+					DefaultTableModel model = (DefaultTableModel) tableEmployee.getModel();
+					totalSalary=0;
+					
+					for(int i=0; i<model.getRowCount(); i++) {
+						double salary = Double.parseDouble(model.getValueAt(i, 8).toString());
+						totalSalary = salary+totalSalary;
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

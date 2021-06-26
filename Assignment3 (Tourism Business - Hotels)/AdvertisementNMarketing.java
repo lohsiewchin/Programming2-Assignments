@@ -48,7 +48,7 @@ public class AdvertisementNMarketing extends JFrame {
 	public AdvertisementNMarketing() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\User\\Pictures\\\u5B66\u4E60\\Programming 2\\Assignments\\Assignment 3\\icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 948, 658);
+		setBounds(100, 100, 948, 544);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -75,6 +75,42 @@ public class AdvertisementNMarketing extends JFrame {
 			}
 		});
 		mnHome.add(mntmFinance);
+		
+		JMenu mnUpdateHotelsRooms = new JMenu("Update Hotels' Rooms Price");
+		mnHome.add(mnUpdateHotelsRooms);
+		
+		JMenuItem mntmJohor = new JMenuItem("Johor");
+		mntmJohor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JohorSetPrice johor = new JohorSetPrice();
+				johor.setModalExclusionType(null);
+				johor.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelsRooms.add(mntmJohor);
+		
+		JMenuItem mntmPenang = new JMenuItem("Penang");
+		mntmPenang.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PenangSetPrice penang = new PenangSetPrice();
+				penang.setModalExclusionType(null);
+				penang.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelsRooms.add(mntmPenang);
+		
+		JMenuItem mntmPerak = new JMenuItem("Perak");
+		mntmPerak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PerakSetPrice perak = new PerakSetPrice();
+				perak.setMaximizedBounds(null);
+				perak.setVisible(true);
+				dispose();
+			}
+		});
+		mnUpdateHotelsRooms.add(mntmPerak);
 		
 		JMenu mnExit = new JMenu("Exit");
 		menuBar.add(mnExit);
@@ -123,7 +159,7 @@ public class AdvertisementNMarketing extends JFrame {
 		panelSelection.setLayout(null);
 		panelSelection.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(255, 204, 102)));
 		panelSelection.setBackground(new Color(255, 255, 204));
-		panelSelection.setBounds(15, 136, 896, 435);
+		panelSelection.setBounds(15, 136, 896, 313);
 		contentPane.add(panelSelection);
 		
 		JTextArea textAreaTypeOfAds = new JTextArea();
@@ -146,7 +182,7 @@ public class AdvertisementNMarketing extends JFrame {
 		});
 		btnOnlineAds.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnOnlineAds.setBackground(new Color(255, 204, 153));
-		btnOnlineAds.setBounds(257, 169, 356, 81);
+		btnOnlineAds.setBounds(257, 169, 356, 46);
 		panelSelection.add(btnOnlineAds);
 		
 		JButton btnOfflineAds = new JButton("Offline Advertisement");
@@ -160,7 +196,7 @@ public class AdvertisementNMarketing extends JFrame {
 		});
 		btnOfflineAds.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
 		btnOfflineAds.setBackground(new Color(255, 204, 153));
-		btnOfflineAds.setBounds(257, 279, 356, 81);
+		btnOfflineAds.setBounds(257, 238, 356, 46);
 		panelSelection.add(btnOfflineAds);
 	}
 }
