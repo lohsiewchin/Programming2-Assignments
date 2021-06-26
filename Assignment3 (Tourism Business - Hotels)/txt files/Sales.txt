@@ -1,8 +1,8 @@
-Penang  |  Hotel Eastern & Oriental  |  Studio rooms  |  748  |  3  |  2  |  4488  |  10%  |  4039.20  |  Online Banking  |  
+Penang  |  Hotel Eastern & Oriental  |  (ENO)Studio rooms  |  748.00  |  3  |  2  |  4488.0  |  10%  |  4039.20  |  Online Banking  |  
 ______________________________________________________________________________________________________________________
-Johor  |  Hotel Legoland Malaysia  |  Deluxe rooms  |  611  |  2  |  2  |  2444  |  N/A  |  2444  |  Debit/Credit Card  |  
+Johor  |  Hotel Legoland Malaysia  |  (HLM)Deluxe rooms  |  792.00  |  2  |  2  |  3168.0  |  10%  |  2851.20  |  Debit/Credit Card  |  
 ______________________________________________________________________________________________________________________
-Perak  |  D Hotel Seri Iskandar  |  Comfort rooms  |  508  |  2  |  1  |  1016  |  N/A  |  1016  |  Online Banking  |  
+Perak  |  D Hotel Seri Iskandar  |  (DH)Comfort rooms  |  205.00  |  2  |  1  |  410.0  |  N/A  |  410.00  |  Online Banking  |  
 ______________________________________________________________________________________________________________________
-Perak  |  Pangkor Laut Resort  |  Villas  |  1080  |  2  |  5  |  10800  |  10%  |  9720.00  |  Debit/Credit Card  |  
+Perak  |  Pangkor Laut Resort  |  (PLR)Villas  |  1080.00  |  2  |  5  |  10800.0  |  10%  |  9720.00  |  Debit/Credit Card  |  
 ______________________________________________________________________________________________________________________
