@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="Assignment3.PenangSetPrice" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/PenangSetPrice.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="556" width="234" x="197" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="Assignment3.CustomerRegistration" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/CustomerRegistration.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="256" width="258" x="471" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="Assignment3.Login" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/Login.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="176" width="250" x="769" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="Assignment3.Sales" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/Sales.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="336" width="319" x="1059" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="Assignment3.AdminHomePage" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/AdminHomePage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="177" x="1418" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="Assignment3.AdvertisementNMarketing" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/AdvertisementNMarketing.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="253" x="1635" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="Assignment3.OfflineAdvertisement" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/OfflineAdvertisement.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="212" x="1928" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="Assignment3.UpdatePrice" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/UpdatePrice.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="169" x="2180" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="Assignment3.PerakSetPrice" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/PerakSetPrice.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="336" width="235" x="2389" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="Assignment3.UserHomePage" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/UserHomePage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="169" x="2664" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="Assignment3.Finance" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/Finance.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="356" width="278" x="2873" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="Assignment3.CompanyBackground" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/CompanyBackground.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="213" x="3191" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="Assignment3.EmployeeManagement" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/EmployeeManagement.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="336" width="258" x="3444" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="Assignment3.HotelDescription" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/HotelDescription.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="170" x="3742" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="Assignment3.MainPage" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/MainPage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="169" x="3952" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="Assignment3.OnlineAdvertisement" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/OnlineAdvertisement.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="136" width="211" x="4161" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="Assignment3.JohorSetPrice" project="Prog2Assignments" 
+    file="/Prog2Assignments/src/Assignment3/JohorSetPrice.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="396" width="209" x="4412" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
