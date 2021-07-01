@@ -306,6 +306,8 @@ public class HotelDescription extends JFrame {
 				comboBoxHotel.setSelectedItem(null);
 				labelHotelName.setText("");
 				textAreaHotelDetails.setText("");
+				lblPic1.setIcon(null);
+				lblPic2.setIcon(null);
 			}
 		});
 		btnReset.setFont(new Font("Britannic Bold", Font.PLAIN, 30));
